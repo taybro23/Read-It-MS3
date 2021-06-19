@@ -21,7 +21,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home_page') }}">Home</a></li>
                 <li><a href="#">Books</a></li>
-                <li><a href="#">My Read-It</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
                 <li><a href="#">Log Out</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -34,7 +34,7 @@
             <li><h4 class="center-align green-text accent-4">Read-It</h4></li>
             <li><a href="{{ url_for('home_page') }}">Home</a></li>
             <li><a href="#">Books</a></li>
-            <li><a href="#">My Read-It</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
             <li><a href="#">Log Out</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
