@@ -98,6 +98,11 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/add-book")
+def add_book():
+    return render_template("add-book.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

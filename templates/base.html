@@ -23,6 +23,7 @@
                 {% if session.user %}
                     <li><a href="#">Books</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
+                    <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -39,6 +40,7 @@
             {% if session.user %}
                 <li><a href="#">Books</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
+                <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
