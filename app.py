@@ -100,7 +100,8 @@ def logout():
 
 @app.route("/add-book")
 def add_book():
-    return render_template("add-book.html")
+    catagories = mongo.db.catagories.find().sort("catagory_name", 1)
+    return render_template("add-book.html", catagories=catagories)
 
 
 if __name__ == "__main__":
