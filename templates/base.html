@@ -35,16 +35,16 @@
 
         <!-- Mobile Sidenav -->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align green-text accent-4">Read-It</h4></li>
-            <li><a href="{{ url_for('home_page') }}">Home</a></li>
+            <li><h4 class="center-align green-text accent-4">Read-It <i class="fas fa-check"></i></h4></li>
+            <li><a href="{{ url_for('home_page') }}"><i class="fas fa-home"></i>Home</a></li>
             {% if session.user %}
-                <li><a href="#">Books</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
-                <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i>Books</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}"><i class="fas fa-user"></i>My Read-It</a></li>
+                <li><a href="{{ url_for('add_book') }}"><i class="far fa-plus-square"></i>Add Book</a></li>
+                <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+                <li><a href="{{ url_for('register') }}"><i class="fas fa-user-plus"></i>Register</a></li>
             {% endif %}
         </ul>
     </header>
