@@ -2,3 +2,7 @@
     line-height: 2;
     color: #ffffff;
 }
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #327e29;
+}
