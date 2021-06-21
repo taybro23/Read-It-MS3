@@ -3,6 +3,10 @@
     color: #ffffff;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .dropdown-content li>a, .dropdown-content li>span {
     color: #327e29;
 }
