@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
+
+body {
+    background-color: mintcream;
+}
+
+nav {
+    font-family: "Source Code Pro", sans-serif;
+}
+
 .flashes h4 {
     line-height: 2;
     color: #ffffff;
+    font-family: "Source Code Pro", sans-serif;
 }
 
 .underline {
@@ -9,4 +20,12 @@
 
 .dropdown-content li>a, .dropdown-content li>span {
     color: #327e29;
+}
+
+nav .brand-logo {
+    padding-left: 40px;
+}
+
+ul:not(.browser-default) {
+    padding-right: 40px;
 }
