@@ -4,22 +4,14 @@ body {
     background-color: mintcream;
 }
 
-nav {
-    font-family: "Source Code Pro", sans-serif;
-}
-
-.flashes h4 {
-    line-height: 2;
-    color: #ffffff;
-    font-family: "Source Code Pro", sans-serif;
-}
-
 .underline {
     text-decoration: underline;
 }
 
-.dropdown-content li>a, .dropdown-content li>span {
-    color: #327e29;
+/* -- Navbar -- */
+
+nav {
+    font-family: "Source Code Pro", sans-serif;
 }
 
 nav .brand-logo {
@@ -28,4 +20,18 @@ nav .brand-logo {
 
 ul:not(.browser-default) {
     padding-right: 40px;
+}
+
+/* -- Flashes -- */
+
+.flashes h4 {
+    line-height: 2;
+    color: #ffffff;
+    font-family: "Source Code Pro", sans-serif;
+}
+
+/* -- Add Book -- */
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #327e29;
 }
