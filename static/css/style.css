@@ -8,7 +8,7 @@ body {
     text-decoration: underline;
 }
 
-/* -- Navbar -- */
+/* ---------- Navbar ---------- */
 
 nav {
     font-family: "Source Code Pro", sans-serif;
@@ -22,7 +22,7 @@ ul:not(.browser-default) {
     padding-right: 40px;
 }
 
-/* -- Flashes -- */
+/* ---------- Flashes------------ */
 
 .flashes h4 {
     line-height: 2;
@@ -30,7 +30,7 @@ ul:not(.browser-default) {
     font-family: "Source Code Pro", sans-serif;
 }
 
-/* -- Add Book -- */
+/* ---------- Add Book ---------- */
 
 .dropdown-content li>a, .dropdown-content li>span {
     color: #327e29;
