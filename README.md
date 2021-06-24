@@ -49,3 +49,5 @@ When a User decides to register, they will be able to log in with ease, create a
 [Back to contents](#table-of-contents)
 
 # Credits
+
+[Back to contents](#table-of-contents)
