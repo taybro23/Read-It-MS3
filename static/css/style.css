@@ -33,5 +33,23 @@ ul:not(.browser-default) {
 /* ---------- Add Book ---------- */
 
 .dropdown-content li>a, .dropdown-content li>span {
-    color: #327e29;
+    color: #00c853;
+}
+
+/* ---------- Hover ---------- */
+
+nav .brand-logo:hover {
+    text-decoration: underline;
+}
+
+nav ul a:hover {
+    text-decoration: underline;
+}
+
+.hover-under:hover {
+    text-decoration: underline;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #00923c;
 }
