@@ -12,6 +12,9 @@
 3. [Design](#design)
 4. [Features](#features)
 5. [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Database](#database)
+    - [Frameworks Libraries and Programmes](#frameworks-libraries-and-programmes)
 6. [Testing](#testing)
 7. [Deployment](#deployment)
 8. [Credits](#credits)
@@ -37,6 +40,56 @@ When a User decides to register, they will be able to log in with ease, create a
 [Back to contents](#table-of-contents)
 
 # Technologies Used
+
+## Languages
+
+-	HTML5
+-	CSS3
+-	Javascript
+-	Python3
+
+## Database
+
+-	Mongo DB
+
+## Frameworks Libraries and Programmes
+
+Flask
+- A python web framework.
+
+Jinja
+- Template used by Flask and Python.
+
+PyMongo
+- Python tool for use with Mongo DB.
+
+Werkzeug
+- WSGI web application library used by Flask and Python.
+
+Balsamiq - https://balsamiq.com/ 
+- I used Balsamiq to create the wireframes for my project.
+
+Font Awesome – https://fontawesome.com/ 
+- Icons from Font Awesome were used throughout the site.  
+
+Github – https://github.com/ 
+- Github was used to store the code for my project.
+
+Gitpod – https://gitpod.io/workspaces/ 
+- I used Gitpod to write the code for my project and push it to Github.
+
+Google Fonts – https://fonts.google.com/ 
+- I used Google Fonts to find the right font for my project.
+
+Heroku - https://id.heroku.com/login 
+- Heroku was used to deploy the project. 
+
+jQuery – https://jquery.com/
+- jQuery was used for the main functions due to ease of use.
+
+MaterializeCSS - https://materializecss.com/ 
+- For this project, I used MaterializeCSS to help with the styling, layout and responsiveness of the finished site.
+
 
 [Back to contents](#table-of-contents)
 
@@ -79,12 +132,12 @@ You can run your own version by cloning the repository. To make a local clone, f
 -	Type “git clone” and paste the copied URL.
 -	Press Enter, and the code will be cloned. 
 
-## Heroku.
+## Heroku
 
 This project is deployed using Heroku. The following steps were taken;
 
-1.	Within GitPod, create the .gitignore and env.py files
-2.	In the .gitignore file, set it to ignore the env.py file and __pycache__/ directory
+1.	Within GitPod, create the .gitignore and env.py files.
+2.	In the .gitignore file, set it to ignore the env.py file and pycache/ directory.
 3.	Within the env.py file, set the following environmental variable;
     - os.environ.setdefault(“IP”, “0.0.0.0”)
     - os.environ.setdefault(“PORT”, “5000”)
@@ -92,12 +145,12 @@ This project is deployed using Heroku. The following steps were taken;
     - os.environ.setdefault(“MONGO_URI”, “mongo db link to go here”)
     - os.environ.setdefault(“MONGO_DBNAME”, “YOUR_DATABASE_NAME”)
 4.	Make sure that the env.py file has been saved correctly and open the app.py file. Import OS, Flask and the env.py file.
-5.	Create a requirements.txt file by typing in the terminal; pip3 freeze –local > requirements.txt
-6.	For Heroku, you will also need a Procfile. Create this by using the terminal and typing; echo web: python app.py > Procfile. Access the Procfile and delete the bottom empty line to avoid any issues in the future
+5.	Create a requirements.txt file by typing in the terminal; pip3 freeze –local > requirements.txt.
+6.	For Heroku, you will also need a Procfile. Create this by using the terminal and typing; echo web: python app.py > Procfile. Access the Procfile and delete the bottom empty line to avoid any issues in the future.
 7.	Go to the Heroku site, and log in or create a profile. From the dashboard, select “New App”. Create a name for your app, select the correct region and click “Create App”.
-8.	Navigate over to the “Deploy” tab and go to the “Deployment method” section. Click on GitHub
-9.	Search for your repository name, and click “Connect” next to your repository name
-10.	Next, go to the “Settings” tab, and scroll down to “Config Vars”. Click “Reveal config vars” 
+8.	Navigate over to the “Deploy” tab and go to the “Deployment method” section. Click on GitHub.
+9.	Search for your repository name, and click “Connect” next to your repository name.
+10.	Next, go to the “Settings” tab, and scroll down to “Config Vars”. Click “Reveal config vars”.
 11.	Enter the Key and Value pairs as per your env.py file;
     - IP : 0.0.0.0
     - PORT : 5000
@@ -105,7 +158,7 @@ This project is deployed using Heroku. The following steps were taken;
     - MONGO_URI : “mongo db link to go here”
     - MONGO_DBNAME : “your database name”
 12.	Finally, go back to the “Deploy” tab, and scroll down to “Automatic deploys”. Click on “Enable Automatic Deploys” then “Deploy Branch”. 
-13.	The app will now be built and upon completion, you will receive a message saying “Your app was successfully deployed.” 
+13.	The app will now be built and upon completion, you will receive a message saying “Your app was successfully deployed”. 
 14. You can now click on “Open App” which will launch the deployed app.
 
 [Back to contents](#table-of-contents)
