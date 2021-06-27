@@ -20,7 +20,7 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home_page') }}">Home</a></li>
-                    <li><a href="#">Books</a></li>
+                <li><a href="{{ url_for('books') }}">Books</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
                     <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
@@ -37,7 +37,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align green-text accent-4">Read-It <i class="fas fa-check"></i></h4></li>
             <li><a href="{{ url_for('home_page') }}"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="#"><i class="fas fa-book-open"></i>Books</a></li>
+            <li><a href="{{ url_for('books') }}"><i class="fas fa-book-open"></i>Books</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}"><i class="fas fa-user"></i>My Read-It</a></li>
                 <li><a href="{{ url_for('add_book') }}"><i class="far fa-plus-square"></i>Add Book</a></li>
