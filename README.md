@@ -9,6 +9,8 @@
 
 1. [Overview](#overview)
 2. [UX](#ux)
+    - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
 3. [Design](#design)
 4. [Features](#features)
 5. [Technologies Used](#technologies-used)
@@ -28,6 +30,44 @@ When a User decides to register, they will be able to log in with ease, create a
 [Back to contents](#table-of-contents)
 
 # UX
+
+## Target Audience
+
+The target audience for my site is people who are avid readers. They’ll be able to keep a list of the books they have rated and reviewed, as well as view other people’s reviews. 
+
+## User Stories
+
+### First time and returning users
+
+All users of this site will be looking for similar things, outlined below;
+-	Easy and clear navigation throughout the entire site on all device types.
+-	To be able to view/preview the site before registering an account.
+-	Have clear Registration/Log In pages.
+-	Have the ability to add their own reviews and keep a record of them.
+-	To be able to edit and delete reviews posted.
+-	Search the site to find other reviews.
+-	For the review information to be clear and concise.
+-	Find links where they can purchase the books.
+-	To be provided with contact information and social links.
+-	Once finished, to securely log out of the site.
+
+### Site owner/admin
+
+-	For users to have easy access to all areas of the site.
+-	For the site to be clear and concise.
+-	The ability for users to contact them for any feedback/issues surrounding the site.
+-	To be able to add, edit and delete book reviews.
+-	Have access to an admin account whereby the owner/admin can add affiliate links to each review left by a user, and earn money from those links. (For project purposes, these links will NOT be affiliate links, and will only be links to the books on Amazon.)
+
+## Wireframes
+
+To create the wireframes, I used Balsamiq. I started with the mobile wireframes and worked my way to a larger screen size. Below are the links to the completed wireframes;
+
+-	[Mobile] (mobile link here)
+-	[Desktop/Laptop] (desktop/laptop link here)
+
+I kept the original ideas for the site as when I built it, I felt that everything worked well and I didn’t need to amend anything. 
+
 
 [Back to contents](#table-of-contents)
 
