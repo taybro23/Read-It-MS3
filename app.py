@@ -107,7 +107,7 @@ def add_book():
         book = {
             "book_title": request.form.get("book_title"),
             "author": request.form.get("author"),
-            "genre": request.form.get("genre"),
+            "genre": request.form.get("genre_type"),
             "release_year": request.form.get("release_year"),
             "image_url": request.form.get("image_url"),
             "rating": request.form.get("rating"),
