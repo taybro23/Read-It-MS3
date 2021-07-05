@@ -32,12 +32,9 @@ ul:not(.browser-default) {
 
 /* ---------- Books ---------- */
 
-.card.horizontal .card-image {
-    width: 35%;
-}
-
-.card .card-content {
-    padding: 10px;
+.card .card-image img {
+    width: 70%;
+    margin: auto;
 }
 
 /* ---------- Add Book ---------- */
