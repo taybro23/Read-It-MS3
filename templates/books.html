@@ -3,28 +3,34 @@
 {% block content %}
 
     <h3 class="green-text accent-4 center-align underline">Book Reviews</h3>
-    
+
     <div class="row">
         {% for book in books %}
-        <div class="col s12 m6">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img src="{{ book.image_url }}" alt="Book Cover">
+        <div class="col s12 m4">
+            <div class="card sticky-action">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ book.image_url }}">
                 </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h6>{{ book.book_title }} by: {{ book.author }}</h6>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">
+                        <p>Info & Review<i class="fas fa-arrow-up right"></i></p>
+                    </span>
+                </div>
+                <div class="card-action">
+                    {% if session.user|lower == book.created_by|lower %}
+                        <a href="#" class="btn-small red darken-3">Delete</a>
+                        <a href="#" class="btn-small green darken-3">Edit</a>
+                    {% endif %}
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        {{ book.book_title }} by {{ book.author }}<i class="fas fa-times-circle right"></i>
+                    </span>
                         <p>Genre: {{ book.genre }}</p>
                         <p>Release Year: {{ book.release_year }}</p>
-                        <p>Rating: {{ book.rating }}</p>
+                        <p>Rating: {{ book.rating }} <i class="fas fa-star"></i> </p>
                         <p>Review: {{ book.book_review }}</p>
                         <p>Created by: {{ book.created_by }} </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <button></button>
-                        <button></button>
-                    </div>
                 </div>
             </div>
         </div>
