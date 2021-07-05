@@ -5,13 +5,13 @@
     <h3 class="green-text accent-4 center-align underline">Add Book</h3>
 
     <div class="row card-panel">
-        <form class="col s12" method="POST" action="{{ url_for('add_book') }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_book', task_id=task._id) }}">
             <!-- Book Title -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-book green-text accent-4 prefix"></i>
                     <input id="book_title" name="book_title" minlength="2" maxlength="50" 
-                        type="text" class="validate" required>
+                        value="{{ book.book_title }}" type="text" class="validate" required>
                     <label for="book_title">Book Title</label>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt green-text accent-4 prefix"></i>
                     <input id="author" name="author" minlength="2" maxlength="50" 
-                        type="text" class="validate" required>
+                    value="{{ book.author }}"type="text" class="validate" required>
                     <label for="author">Author</label>
                 </div>
             </div>
@@ -29,9 +29,13 @@
                 <div class="input-field col s12">
                     <i class="fas fa-book-reader green-text accent-4 prefix"></i>
                     <select id="genre_type" name="genre_type" class="validate" required>
-                        <option value="" disabled selected>Genre</option>
+                        <option value="" disabled>Genre</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == book.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}    
                         {% endfor %}
                     </select>
                     <label for="genre_type">Genre</label>
@@ -42,7 +46,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt green-text accent-4 prefix"></i>
                     <input id="release_year" name="release_year" minlength="4" maxlength="4" 
-                        type="number" class="validate" required>
+                    value="{{ book.release_year }}"type="number" class="validate" required>
                     <label for="release_year">Release Year</label>
                 </div>
             </div>
@@ -50,7 +54,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-image prefix green-text accent-4"></i>
-                    <input id="image_url" name="image_url" type="text" class="validate" required>
+                    <input id="image_url" name="image_url" type="text" class="validate" 
+                        value="{{ book.image_url }}" required>
                     <label for="image_url">Book Image URL</label>
                 </div>
             </div>
@@ -74,8 +79,10 @@
             <div class="row">
                 <h5>Leave A Review (Optional)</h5>
                 <div class="input-field col s12">
-                    <textarea id="review" name="review" class="materialize-textarea" data-length="120"></textarea>
-                    <label for="review">Review</label>
+                    <textarea id="book_review" name="book_review" class="materialize-textarea" data-length="120">
+                        {{- book.book_review -}}
+                    </textarea>
+                    <label for="book_review">Review</label>
                 </div>
             </div>
             <!-- Submit Button -->
