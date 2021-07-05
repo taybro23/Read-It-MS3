@@ -30,6 +30,16 @@ ul:not(.browser-default) {
     font-family: "Source Code Pro", sans-serif;
 }
 
+/* ---------- Books ---------- */
+
+.card.horizontal .card-image {
+    width: 35%;
+}
+
+.card .card-content {
+    padding: 10px;
+}
+
 /* ---------- Add Book ---------- */
 
 .dropdown-content li>a, .dropdown-content li>span {
