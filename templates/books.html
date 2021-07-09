@@ -6,34 +6,34 @@
 
     <div class="row">
         {% for book in books %}
-        <div class="col s12 m4">
-            <div class="card sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">
-                        <p>Info & Review<i class="fas fa-arrow-up right"></i></p>
-                    </span>
-                </div>
-                <div class="card-action">
+            <div class="col s12 m4">
+                <div class="card sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            <p>Info & Review<i class="fas fa-arrow-up right"></i></p>
+                        </span>
+                    </div>
                     {% if session.user|lower == book.created_by|lower %}
-                        <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating"><i class="fas fa-times-circle"></i></a>
-                        <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small grn-btn green accent-4">Edit</a>
+                        <div class="card-action">
+                                <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating"><i class="fas fa-times-circle"></i></a>
+                                <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small grn-btn green accent-4">Edit</a>
+                        </div>
                     {% endif %}
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">
-                        {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
-                    </span>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
+                        </span>
                         <p>Genre: {{ book.genre }}</p>
                         <p>Release Year: {{ book.release_year }}</p>
                         <p>Rating: {{ book.rating }} <i class="fas fa-star"></i> </p>
                         <p>Review: {{ book.book_review }}</p>
                         <p>Created by: {{ book.created_by }} </p>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 
