@@ -32,9 +32,24 @@ ul:not(.browser-default) {
 
 /* ---------- Books ---------- */
 
+.card {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* help from fellow student Gaff Alumnus */
+.card-image.waves-effect.waves-block.waves-light {
+    min-height: 25rem;
+    max-height: 25rem;
+}
+
 .card .card-image img {
     width: 70%;
     margin: auto;
+}
+
+i.right {
+    margin: 0;
 }
 
 .btn-floating {
