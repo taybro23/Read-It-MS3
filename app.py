@@ -23,10 +23,12 @@ mongo = PyMongo(app)
 def home_page():
     return render_template("home.html")
 
+
 @app.route("/books")
 def books():
     books = mongo.db.books.find()
     return render_template("books.html", books=books)
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -67,7 +69,7 @@ def login():
                         request.form.get("username")))
                     return redirect(
                         url_for("profile", username=session["user"]))
-                    
+
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -77,7 +79,7 @@ def login():
             # username doesnt exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
-            
+
     return render_template("login.html")
 
 
@@ -86,7 +88,7 @@ def profile(username):
     # grab the session user's username from the db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     if session["user"]:
         return render_template("profile.html", username=username)
 
@@ -140,6 +142,13 @@ def edit_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit-book.html", book=book, categories=categories)
+
+
+@app.route("/delete_book/<book_id>")
+def delete_book(book_id):
+    mongo.db.books.remove({"_id": ObjectId(book_id)})
+    flash("Book Deleted")
+    return redirect(url_for("books"))
 
 
 if __name__ == "__main__":
