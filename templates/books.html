@@ -18,13 +18,13 @@
                 </div>
                 <div class="card-action">
                     {% if session.user|lower == book.created_by|lower %}
-                        <a href="#" class="btn-small red darken-3">Delete</a>
-                        <a href="#" class="btn-small green darken-3">Edit</a>
+                        <a href="#" class="btn-floating"><i class="fas fa-times-circle"></i></a>
+                        <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small grn-btn green accent-4">Edit</a>
                     {% endif %}
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">
-                        {{ book.book_title }} by {{ book.author }}<i class="fas fa-times-circle right"></i>
+                        {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
                     </span>
                         <p>Genre: {{ book.genre }}</p>
                         <p>Release Year: {{ book.release_year }}</p>
