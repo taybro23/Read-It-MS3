@@ -12,9 +12,8 @@
                         <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">
-                            <p class="underline">Info & Review<i class="fas fa-arrow-up right"></i></p>
-                            <!--<p>{{ book.book_title }} by {{ book.author }}</p>-->
+                        <span class="card-title activator black-text">
+                            <p>Info & Review<i class="fas fa-arrow-up right"></i></p>
                         </span>
                     </div>
                     {% if session.user|lower == book.created_by|lower %}
@@ -24,7 +23,7 @@
                         </div>
                     {% endif %}
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
+                        <span class="card-title black-text underline">
                             {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
                         </span>
                         <p>Genre: {{ book.genre }}</p>
