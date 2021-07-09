@@ -37,6 +37,19 @@ ul:not(.browser-default) {
     margin: auto;
 }
 
+.btn-floating {
+    background-color: red;
+    margin-right: 10px;
+}
+
+i.fa-times-circle {
+    color: #ffffff;
+}
+
+i.fa-times {
+    color: red;
+}
+
 /* ---------- Add Book ---------- */
 
 .dropdown-content li>a, .dropdown-content li>span {
@@ -59,4 +72,8 @@ nav ul a:hover {
 
 .btn:hover, .btn-large:hover, .btn-small:hover {
     background-color: #00923c;
+}
+
+.btn-floating:hover {
+    background-color: #d50000;
 }
