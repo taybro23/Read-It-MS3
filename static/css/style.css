@@ -8,6 +8,10 @@ body {
     text-decoration: underline;
 }
 
+.row {
+    margin-bottom: 10px;
+}
+
 /* ---------- Navbar ---------- */
 
 nav {
@@ -44,6 +48,11 @@ ul:not(.browser-default) {
 
 /* ---------- Books Page ---------- */
 
+.card-panel {
+    padding: 5px;
+    margin: 0;
+}
+
 .card {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -66,6 +75,10 @@ i.fa-times-circle {
 
 i.fa-times {
     color: red;
+}
+
+i.fa-arrow-up {
+    color: #00e676;
 }
 
 /* ---------- Add Book Page ---------- */
