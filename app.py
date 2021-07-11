@@ -184,6 +184,13 @@ def edit_genre(category_id):
     return render_template("edit-genre.html", category=category)
 
 
+@app.route("/delete_genre/<category_id>")
+def delete_genre(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("Genre Successfully Deleted")
+    return redirect(url_for("manage_genres"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
