@@ -4,59 +4,63 @@
 
     <h3 class="green-text accent-4 center-align underline">Book Reviews</h3>
 
+    <!-- Search box to find Books by Title or Author -->
     <div class="row card-panel">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search left"></i>
+        <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <div class="row center-align">
+                <div class="input-field col s12">
                     <input type="text" name="query" id="query" minlength="2" class="validate" required>
-                    <label for="query">Search Books</label>
+                    <label for="query"><i class="fas fa-search"></i> Search Books by Title or Author</label>
                 </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('books') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="btn text_shadow">
-                        <i class="fas fa-search"></i> Search
-                    </button>
+                <div class="row center-align">
+                    <div class="col s12">
+                        <a href="{{ url_for('books') }}" class="red btn text-shadow">
+                            Clear Search <i class="fas fa-redo-alt"></i>
+                        </a>
+                        <button type="submit" class="btn text-shadow green accent-4">
+                            Search <i class="fas fa-search right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 
+    <!-- Display Books from db -->
     {% if books|length > 0 %}
-    <div class="row">
-        {% for book in books %}
-            <div class="col s12 m6 l4">
-                <div class="card hoverable sticky-action">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator black-text">
-                            <p>Info & Review<i class="fas fa-arrow-up right"></i></p>
-                        </span>
-                    </div>
-                    {% if session.user|lower == book.created_by|lower %}
-                        <div class="card-action">
-                                <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating"><i class="fas fa-times-circle"></i></a>
-                                <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small grn-btn green accent-4">Edit</a>
+        <div class="row">
+            {% for book in books %}
+                <div class="col s12 m6 l4">
+                    <div class="card hoverable">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
                         </div>
-                    {% endif %}
-                    <div class="card-reveal">
-                        <span class="card-title black-text underline">
-                            {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
-                        </span>
-                        <p>Genre: {{ book.genre }}</p>
-                        <p>Release Year: {{ book.release_year }}</p>
-                        <p>Rating: {{ book.rating }} <i class="fas fa-star"></i> </p>
-                        <p>Review: {{ book.book_review }}</p>
-                        <p>Created by: {{ book.created_by }} </p>
+                        <div class="card-content">
+                            <span class="card-title activator black-text">
+                                <p>Book Info & Review<i class="fas fa-arrow-up right"></i></p>
+                            </span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title black-text underline">
+                                {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
+                            </span>
+                            <p>Genre: {{ book.genre }}</p>
+                            <p>Release Year: {{ book.release_year }}</p>
+                            <p>Rating: {{ book.rating }} <i class="fas fa-star"></i> </p>
+                            <p>Review: {{ book.book_review }}</p>
+                            <p>Created by: {{ book.created_by }} </p>
+                            <!-- Delete and Edit buttons, accessible by created_by user and admin  -->
+                            {% if session.user|lower == book.created_by|lower or session.user|lower == "admin"|lower %}
+                                <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating"><i class="far fa-trash-alt"></i></a>
+                                <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small grn-btn green accent-4">Edit</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
     {% else %}
-        <h3 class="red-text accent-4 center-align">No Results Found</h3>
+        <h3 class="red-text center-align">No Search Results Found</h3>
     {% endif %}
 
 {% endblock %}
