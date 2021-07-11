@@ -48,10 +48,6 @@ ul:not(.browser-default) {
     margin: auto;
 }
 
-i.right {
-    margin: 0;
-}
-
 .btn-floating {
     background-color: red;
     margin-right: 10px;
