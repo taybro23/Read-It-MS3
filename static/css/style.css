@@ -1,3 +1,5 @@
+/* ---------- General Page Styling ---------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
 
 body {
@@ -26,13 +28,17 @@ ul:not(.browser-default) {
     padding-right: 40px;
 }
 
-/* ---------- Flashes ------------ */
 
-.flashes h4 {
-    line-height: 2;
-    color: #ffffff;
-    font-family: "Source Code Pro", sans-serif;
+/* Page Styling */
+
+/* ---------- Add Book Page ---------- */
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #00c853;
 }
+
+
+/* Element Styling */
 
 /* ---------- Buttons ------------ */
 
@@ -46,10 +52,10 @@ ul:not(.browser-default) {
     margin-right: 10px;
 }
 
-/* ---------- Books Page ---------- */
+/* ---------- Cards ---------- */
 
 .card-panel {
-    padding: 5px;
+    padding: 10px;
     margin: 0;
 }
 
@@ -69,6 +75,16 @@ ul:not(.browser-default) {
     margin: auto;
 }
 
+/* ---------- Flashes ------------ */
+
+.flashes h4 {
+    line-height: 2;
+    color: #ffffff;
+    font-family: "Source Code Pro", sans-serif;
+}
+
+/* ---------- Icon Styling ---------- */
+
 i.fa-times-circle {
     color: #ffffff;
 }
@@ -79,12 +95,6 @@ i.fa-times {
 
 i.fa-arrow-up {
     color: #00e676;
-}
-
-/* ---------- Add Book Page ---------- */
-
-.dropdown-content li>a, .dropdown-content li>span {
-    color: #00c853;
 }
 
 /* ---------- Hover ---------- */
