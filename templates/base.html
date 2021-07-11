@@ -24,6 +24,9 @@
                 {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
                     <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('manage_genres') }}">Manage Genres</a></li>
+                    {% endif %}
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -41,6 +44,7 @@
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}"><i class="fas fa-user"></i>My Read-It</a></li>
                 <li><a href="{{ url_for('add_book') }}"><i class="far fa-plus-square"></i>Add Book</a></li>
+                <li><a href="{{ url_for('manage_genres') }}">Manage Genres</a></li>
                 <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
