@@ -19,8 +19,8 @@
                         <span class="card-title">{{ category.category_name }}</span>
                     </div>
                     <div class="card-action">
-                        <a href="#" class="btn-small grn-btn green accent-4">Edit</a>
                         <a href="#" class="btn-floating"><i class="fas fa-times-circle"></i></a>
+                        <a href="{{ url_for('edit_genre', category_id=category._id) }}" class="btn-small grn-btn green accent-4">Edit</a>
                     </div>
                 </div>
             </div>
