@@ -22,7 +22,7 @@ ul:not(.browser-default) {
     padding-right: 40px;
 }
 
-/* ---------- Flashes------------ */
+/* ---------- Flashes ------------ */
 
 .flashes h4 {
     line-height: 2;
@@ -30,7 +30,19 @@ ul:not(.browser-default) {
     font-family: "Source Code Pro", sans-serif;
 }
 
-/* ---------- Books ---------- */
+/* ---------- Buttons ------------ */
+
+.btn-large {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-floating {
+    background-color: red;
+    margin-right: 10px;
+}
+
+/* ---------- Books Page ---------- */
 
 .card {
     margin-top: 30px;
@@ -48,11 +60,6 @@ ul:not(.browser-default) {
     margin: auto;
 }
 
-.btn-floating {
-    background-color: red;
-    margin-right: 10px;
-}
-
 i.fa-times-circle {
     color: #ffffff;
 }
@@ -61,7 +68,7 @@ i.fa-times {
     color: red;
 }
 
-/* ---------- Add Book ---------- */
+/* ---------- Add Book Page ---------- */
 
 .dropdown-content li>a, .dropdown-content li>span {
     color: #00c853;
