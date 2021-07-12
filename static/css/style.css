@@ -35,6 +35,14 @@ ul:not(.browser-default) {
     padding-right: 40px;
 }
 
+/* ---------- Footer ---------- */
+
+.social-links li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 25px;
+}
+
 
 /* Page Styling */
 
