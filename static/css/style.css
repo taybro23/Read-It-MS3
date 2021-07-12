@@ -4,14 +4,21 @@
 
 body {
     background-color: mintcream;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.underline {
-    text-decoration: underline;
+main {
+    flex: 1 0 auto;
 }
 
 .row {
     margin-bottom: 10px;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /* ---------- Navbar ---------- */
@@ -37,6 +44,13 @@ ul:not(.browser-default) {
     color: #00c853;
 }
 
+/* ---------- Profile Page ---------- */
+
+blockquote {
+    color: #4CAF50;
+    border-left-color: #00c853;
+}
+
 
 /* Element Styling */
 
@@ -53,11 +67,6 @@ ul:not(.browser-default) {
 }
 
 /* ---------- Cards ---------- */
-
-.card-panel {
-    padding: 10px;
-    margin: 0;
-}
 
 .card {
     margin-top: 30px;
