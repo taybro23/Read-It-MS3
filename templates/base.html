@@ -20,10 +20,10 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home_page') }}">Home</a></li>
-                <li><a href="{{ url_for('books') }}">Books</a></li>
+                <li><a href="{{ url_for('books') }}">Book Reviews</a></li>
                 {% if session.user %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">My Read-It</a></li>
-                    <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">My Profile</a></li>
+                    <li><a href="{{ url_for('add_book') }}">Add Review</a></li>
                     {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('manage_genres') }}">Manage Genres</a></li>
                     {% endif %}
@@ -40,10 +40,10 @@
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align green-text accent-4">Read-It <i class="fas fa-check"></i></h4></li>
             <li><a href="{{ url_for('home_page') }}"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="{{ url_for('books') }}"><i class="fas fa-book-open"></i>Books</a></li>
+            <li><a href="{{ url_for('books') }}"><i class="fas fa-book-open"></i>Book Reviews</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}"><i class="fas fa-user"></i>My Read-It</a></li>
-                <li><a href="{{ url_for('add_book') }}"><i class="far fa-plus-square"></i>Add Book</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}"><i class="fas fa-user"></i>My Profile</a></li>
+                <li><a href="{{ url_for('add_book') }}"><i class="far fa-plus-square"></i>Add Review</a></li>
                 {% if session.user|lower == "admin"|lower %}
                     <li><a href="{{ url_for('manage_genres') }}"><i class="fas fa-cogs"></i>Manage Genres</a></li>
                 {% endif %}
