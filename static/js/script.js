@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
-    $('input#input_text, textarea#review').characterCounter();
+    $('input#input_text, textarea#book_review').characterCounter();
     $('.grn-btn').hover(
         function(){
             $(this).removeClass("green", "accent-4")
