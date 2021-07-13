@@ -64,7 +64,7 @@ All users of this site will be looking for similar things, outlined below;
 To create the wireframes, I used Balsamiq. I started with the mobile wireframes and worked my way to a larger screen size. Below are the links to the completed wireframes;
 
 -	[Mobile](static/images/wireframes/mobilewf.pdf)
--	[Desktop/Laptop](static/images/wireframes/desktop.pdf)
+-	[Desktop/Laptop](static/images/wireframes/desktopwf.pdf)
 
 I kept the original ideas for the site as when I built it, I felt that everything worked well and I didn’t need to amend anything. 
 
