@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('input#input_text, textarea#book_review').characterCounter();
+    $('.tooltipped').tooltip();
     $('.grn-btn').hover(
         function(){
             $(this).removeClass("green", "accent-4")

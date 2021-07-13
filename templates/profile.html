@@ -12,7 +12,7 @@
     </div>
 
     <blockquote>
-        <h5>My Books:</h5>
+        <h5>My Reviews:</h5>
     </blockquote>
 
     {% if books|length > 0 %}
@@ -37,17 +37,34 @@
                             <p>Rating: {{ book.rating }} <i class="fas fa-star"></i> </p>
                             <p>Review: {{ book.book_review }}</p>
                             <p>Created by: {{ book.created_by }} </p>
-                            <!-- Delete and Edit buttons  -->
-                            <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating"><i
-                                    class="far fa-trash-alt"></i></a>
-                            <a href="{{ url_for('edit_book', book_id=book._id) }}"
-                                class="btn-small grn-btn green accent-4">Edit</a>
+                            <!-- Delete and Edit buttons, accessible by created_by user and admin  -->
+                            {% if session.user|lower == book.created_by|lower or session.user|lower == "admin"|lower %}
+                                <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn-floating tooltipped delete-btn" data-position="bottom" data-tooltip="Delete">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                                <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-floating tooltipped edit-btn" data-position="bottom" data-tooltip="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
+                                    <i class="fas fa-bookmark"></i>
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
+    {% else %}
+        <h3 class="red-text center-align">No Search Results Found</h3>
     {% endif %}
+
+    <blockquote>
+        <h5>Books Bookmarked:</h5>
+    </blockquote>
+
+    <blockquote>
+        <h5>Book Comments:</h5>
+    </blockquote>
 
     <blockquote>
         <h5>Why not review another book?</h5>

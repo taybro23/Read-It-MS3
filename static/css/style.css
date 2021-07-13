@@ -79,8 +79,19 @@ blockquote {
 }
 
 .btn-floating {
-    background-color: red;
     margin-right: 10px;
+}
+
+.like-btn {
+    background-color: #00c853;
+}
+
+.delete-btn {
+    background-color: red;
+}
+
+.edit-btn {
+    background-color: #388e3c;
 }
 
 /* ---------- Cards ---------- */
@@ -141,6 +152,14 @@ nav ul a:hover {
     background-color: #388e3c;
 }
 
-.btn-floating:hover {
+.like-btn:hover {
+    background-color: #388e3c;
+}
+
+.delete-btn:hover {
     background-color: #d50000;
+}
+
+.edit-btn:hover {
+    background-color: #00c853;
 }
