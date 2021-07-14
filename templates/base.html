@@ -68,7 +68,13 @@
         {% endwith %}
     </section>
 
-    <!-- Page Content -->
+    <!-- Home Page Content -->
+    <div>
+        {% block home_page %}
+        {% endblock %}
+    </div>
+
+    <!-- Main Content -->
     <main class="container">
         {% block content %}
         {% endblock %}
