@@ -55,10 +55,10 @@ ul:not(.browser-default) {
 
 /* Page Styling */
 
-/* ---------- Add Book Page ---------- */
+/* ---------- Home Page ---------- */
 
-.dropdown-content li>a, .dropdown-content li>span {
-    color: #00c853;
+.hp-img {
+    width: 100%;
 }
 
 /* ---------- Profile Page ---------- */
@@ -66,6 +66,12 @@ ul:not(.browser-default) {
 blockquote {
     color: #4CAF50;
     border-left-color: #00c853;
+}
+
+/* ---------- Add Review ---------- */
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #00c853;
 }
 
 

@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('input#input_text, textarea#book_review').characterCounter();
     $('.tooltipped').tooltip();
+    $('.parallax').parallax();
     $('.grn-btn').hover(
         function(){
             $(this).removeClass("green", "accent-4")
