@@ -4,14 +4,16 @@
 
     <h3 class="green-text accent-4 center-align underline">Book Reviews</h3>
 
-    <!-- Search box to find Books by Title or Author -->
+    <!-- Search Box to find Books by Title or Author -->
     <div class="row card-panel">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row center-align">
+                <!-- Seach Box -->
                 <div class="input-field col s12">
                     <input type="text" name="query" id="query" minlength="2" class="validate" required>
                     <label for="query"><i class="fas fa-search"></i> Search Books by Title or Author</label>
                 </div>
+                <!-- Clear and Search Buttons -->
                 <div class="row center-align">
                     <div class="col s12">
                         <a href="{{ url_for('books') }}" class="red btn text-shadow">
@@ -32,14 +34,17 @@
             {% for book in books %}
                 <div class="col s12 m6 l4">
                     <div class="card hoverable">
+                        <!-- Book Image -->
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
                         </div>
+                        <!-- Card Title and Activator -->
                         <div class="card-content">
                             <span class="card-title activator black-text">
                                 <p>Book Info & Review<i class="fas fa-arrow-up right"></i></p>
                             </span>
                         </div>
+                        <!-- Card Reveal Information -->
                         <div class="card-reveal">
                             <span class="card-title black-text underline">
                                 {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>

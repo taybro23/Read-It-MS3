@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block content %}
 
     <div class="row">
@@ -11,23 +12,28 @@
         </div>
     </div>
 
+    <!-- My Reviews Section -->
     <blockquote>
         <h5>My Reviews:</h5>
     </blockquote>
 
+    <!-- Display Books from db -->
     {% if books|length > 0 %}
         <div class="row">
             {% for book in books %}
                 <div class="col s12 m6 l4">
                     <div class="card hoverable">
+                        <!-- Book Image -->
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="{{ book.image_url }}" alt="Book Cover Image">
                         </div>
+                        <!-- Card Title and Activator -->
                         <div class="card-content">
                             <span class="card-title activator black-text">
                                 <p>Book Info & Review<i class="fas fa-arrow-up right"></i></p>
                             </span>
                         </div>
+                        <!-- Card Reveal Information -->
                         <div class="card-reveal">
                             <span class="card-title black-text underline">
                                 {{ book.book_title }} by {{ book.author }}<i class="fas fa-times right"></i>
@@ -58,26 +64,32 @@
         <h3 class="red-text center-align">No Search Results Found</h3>
     {% endif %}
 
+    <!-- Bookmarked Books Section -->
     <blockquote>
-        <h5>Books Bookmarked:</h5>
+        <h5>Bookmarked Books:</h5>
     </blockquote>
 
+    <!-- Book Comments Section -->
     <blockquote>
         <h5>Book Comments:</h5>
     </blockquote>
 
+    <!-- Add Review Section -->
     <blockquote>
         <h5>Why not review another book?</h5>
     </blockquote>
 
+    <!-- Add Review Card -->
     <div class="row">
         <div class="col s12 m6 l4">
             <div class="card green accent-4 hoverable">
+                <!-- Card Image -->
                 <div class="card-image">
                     <a href="{{ url_for('add_book') }}">
-                        <img src="https://images.pexels.com/photos/2908773/pexels-photo-2908773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                        <img src="https://images.pexels.com/photos/2908773/pexels-photo-2908773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Open book with reading glasses">
                     </a>
                 </div>
+                <!-- Card Title -->
                 <div class="card-action center-align white">
                     <a href="{{ url_for('add_book') }}" class="black-text review-link">
                         Leave A Review
