@@ -169,3 +169,7 @@ nav ul a:hover {
 .edit-btn:hover {
     background-color: #00c853;
 }
+
+.review-link:hover {
+    text-decoration: underline;
+}
