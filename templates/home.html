@@ -9,20 +9,30 @@
         </div>
     </div>
 
-    <h3 class="green-text center-align">Welcome to Read-It</h3>
+    <h3 class="green-text center-align underline">Welcome to Read-It</h3>
 
-    <!-- Page Text and Image -->
+    <!-- Page Text -->
     <div class="row container">
-        <!-- Page Text -->
-        <div class="col s6">
-            <p>
-                Welcome to read-it, the site where you can review your favourite books, bookmark them in your profile 
-                and add comments to existing reviews.
-            </p>
+        <div class="col s12">
+            <h6>
+                Welcome to Read-It! The site where you can share reviews of your favourite books
+                with other avid readers. On our site, you can read reviews created by people who have
+                read them independently; no paid reviews will ever be on our site.
+                <br> <br>
+                Feel free to take a look around, and if you like what you see, why not register and share your
+                own reviews? 
+                <br> <br>
+                <a href="{{ url_for('register') }}" class="underline">Register</a> here!
+                Already a member? <a href="{{ url_for('login') }}" class="underline">Log In</a> here!
+                <br> <br>
+                Once you're logged in, why not leave a review and share your thoughts with the world!
+            </h6>
         </div>
-        <!-- Page Image -->
-        <div class="col s6">
-            <img class="hp-img" src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Dark library">
+    </div>
+
+    <div class="parallax-container parallax-lower">
+        <div class="parallax">
+            <img src="https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Books on library shelves">
         </div>
     </div>
     
