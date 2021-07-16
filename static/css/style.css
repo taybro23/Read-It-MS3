@@ -43,7 +43,6 @@ ul:not(.browser-default) {
 
 .page-footer {
     padding-top: 10px;
-    margin-top: 20px;
 }
 
 .social-links li {
@@ -57,8 +56,12 @@ ul:not(.browser-default) {
 
 /* ---------- Home Page ---------- */
 
-.hp-img {
-    width: 100%;
+.parallax-container {
+    height: 400px;
+}
+
+.parallax-lower {
+    margin-top: 35px;
 }
 
 /* ---------- Profile Page ---------- */
