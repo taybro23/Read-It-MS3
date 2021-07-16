@@ -141,7 +141,7 @@ def add_book():
         }
         # insert new book into db
         mongo.db.books.insert_one(book)
-        flash("Book Added!")
+        flash("Book Review Added!")
         return redirect(url_for("books"))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add-book.html", categories=categories)
@@ -164,7 +164,7 @@ def edit_book(book_id):
         }
         # update book info
         mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
-        flash("Book Updated!")
+        flash("Book Review Updated!")
 
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -175,7 +175,7 @@ def edit_book(book_id):
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     mongo.db.books.remove({"_id": ObjectId(book_id)})
-    flash("Book Deleted")
+    flash("Book Review Deleted")
     return redirect(url_for("books"))
 
 
