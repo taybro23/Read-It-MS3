@@ -127,56 +127,62 @@ def profile(username):
 # add book to db
 @app.route("/add-book", methods=["GET", "POST"])
 def add_book():
-    if request.method == "POST":
-        # retrieve book info from form
-        book = {
-            "book_title": request.form.get("book_title"),
-            "author": request.form.get("author"),
-            "genre": request.form.get("genre_type"),
-            "release_year": request.form.get("release_year"),
-            "image_url": request.form.get("image_url"),
-            "rating": request.form.get("rating"),
-            "book_review": request.form.get("book_review"),
-            "created_by": session["user"]
-        }
-        # insert new book into db
-        mongo.db.books.insert_one(book)
-        flash("Book Review Added!")
-        return redirect(url_for("books"))
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add-book.html", categories=categories)
+    if session.get("user"):
+        if request.method == "POST":
+            # retrieve book info from form
+            book = {
+                "book_title": request.form.get("book_title"),
+                "author": request.form.get("author"),
+                "genre": request.form.get("genre_type"),
+                "release_year": request.form.get("release_year"),
+                "image_url": request.form.get("image_url"),
+                "rating": request.form.get("rating"),
+                "book_review": request.form.get("book_review"),
+                "purchase_link": request.form.get("purchase_link"),
+                "created_by": session["user"]
+            }
+            # insert new book into db
+            mongo.db.books.insert_one(book)
+            flash("Book Review Added!")
+            return redirect(url_for("books"))
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add-book.html", categories=categories)
 
 
 # edit book review
 @app.route("/edit-book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    if request.method == "POST":
-        # retrieve book info from db
-        submit = {
-            "book_title": request.form.get("book_title"),
-            "author": request.form.get("author"),
-            "genre": request.form.get("genre_type"),
-            "release_year": request.form.get("release_year"),
-            "image_url": request.form.get("image_url"),
-            "rating": request.form.get("rating"),
-            "book_review": request.form.get("book_review"),
-            "created_by": session["user"]
-        }
-        # update book info
-        mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
-        flash("Book Review Updated!")
+    if session.get("user"):
+        if request.method == "POST":
+            # retrieve book info from db
+            submit = {
+                "book_title": request.form.get("book_title"),
+                "author": request.form.get("author"),
+                "genre": request.form.get("genre_type"),
+                "release_year": request.form.get("release_year"),
+                "image_url": request.form.get("image_url"),
+                "rating": request.form.get("rating"),
+                "book_review": request.form.get("book_review"),
+                "purchase_link": request.form.get("purchase_link"),
+                "created_by": session["user"]
+            }
+            # update book info
+            mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
+            flash("Book Review Updated!")
 
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit-book.html", book=book, categories=categories)
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("edit-book.html",
+                               book=book, categories=categories)
 
 
 # delete book review
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
-    mongo.db.books.remove({"_id": ObjectId(book_id)})
-    flash("Book Review Deleted")
-    return redirect(url_for("books"))
+    if session.get("user"):
+        mongo.db.books.remove({"_id": ObjectId(book_id)})
+        flash("Book Review Deleted")
+        return redirect(url_for("books"))
 
 
 # admin to manage genres in db
