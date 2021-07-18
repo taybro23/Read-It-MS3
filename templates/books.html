@@ -66,6 +66,7 @@
                                     <i class="fas fa-bookmark"></i>
                                 </a>
                             {% endif %}
+                            <!-- Purchase Link Button, only showing when link is in db -->
                             {% if book.purchase_link != null %}
                                 <a href="{{ book.purchase_link }}" target="_blank" class="btn-floating tooltipped purchase-btn" data-position="bottom" data-tooltip="Purchase Link">
                                     <i class="fas fa-shopping-cart"></i>

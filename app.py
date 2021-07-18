@@ -129,6 +129,11 @@ def profile(username):
 def add_book():
     if session.get("user"):
         if request.method == "POST":
+            # purchase link auto-generated
+            purchase_link = (
+                "https://www.amazon.co.uk/s?k="
+                + request.form.get("book_title")
+            )
             # retrieve book info from form
             book = {
                 "book_title": request.form.get("book_title"),
@@ -138,7 +143,7 @@ def add_book():
                 "image_url": request.form.get("image_url"),
                 "rating": request.form.get("rating"),
                 "book_review": request.form.get("book_review"),
-                "purchase_link": request.form.get("purchase_link"),
+                "purchase_link": purchase_link,
                 "created_by": session["user"]
             }
             # insert new book into db

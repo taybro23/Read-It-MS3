@@ -79,9 +79,10 @@
                     <label for="book_review">Review</label>
                 </div>
             </div>
+            <!-- Edit purchase link, available for admin to amend incase of error/other issues -->
             {% if session.user|lower == "admin"|lower %}
             <div class="row">
-                <h5>Add Purchase Link</h5>
+                <h5>Purchase Link</h5>
                 <div class="input-field col s12">
                     <input id="purchase_link" name="purchase_link" type="text" class="validate" 
                         value="{{ book.purchase_link }}">
