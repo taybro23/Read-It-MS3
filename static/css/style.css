@@ -91,16 +91,20 @@ blockquote {
     margin-right: 10px;
 }
 
-.like-btn {
-    background-color: #00c853;
-}
-
 .delete-btn {
     background-color: red;
 }
 
 .edit-btn {
-    background-color: #388e3c;
+    background-color: #00c853;
+}
+
+.like-btn {
+    background-color: #00bcd4;
+}
+
+.purchase-btn {
+    background-color: #7c4dff;
 }
 
 .add-genre-btn {
@@ -166,16 +170,20 @@ nav ul a:hover {
     background-color: #388e3c;
 }
 
-.like-btn:hover {
-    background-color: #388e3c;
-}
-
 .delete-btn:hover {
     background-color: #d50000;
 }
 
 .edit-btn:hover {
-    background-color: #00c853;
+    background-color: #388e3c;
+}
+
+.like-btn:hover {
+    background-color: #00838f;
+}
+
+.purchase-btn:hover {
+    background-color: #4527a0;
 }
 
 .review-link:hover {

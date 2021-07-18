@@ -66,6 +66,11 @@
                                     <i class="fas fa-bookmark"></i>
                                 </a>
                             {% endif %}
+                            {% if book.purchase_link != null %}
+                                <a href="{{ book.purchase_link }}" target="_blank" class="btn-floating tooltipped purchase-btn" data-position="bottom" data-tooltip="Purchase Link">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
