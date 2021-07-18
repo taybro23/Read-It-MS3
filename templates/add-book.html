@@ -72,6 +72,15 @@
                     <label for="book_review">Review</label>
                 </div>
             </div>
+            {% if session.user|lower == "admin"|lower %}
+            <div class="row">
+                <h5>Add Purchase Link</h5>
+                <div class="input-field col s12">
+                    <input id="purchase_link" name="purchase_link" type="text" class="validate">
+                    <label for="purchase_link">Purchase Link</label>
+                </div>
+            </div>
+            {% endif %}
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12 center-align">
