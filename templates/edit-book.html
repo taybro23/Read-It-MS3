@@ -2,9 +2,9 @@
 
 {% block content %}
 
-    <h3 class="green-text accent-4 center-align underline">Edit Book</h3>
+    <h3 class="green-text accent-4 center-align underline">Edit Book Review</h3>
 
-    <!-- Edit Book Card -->
+    <!-- Edit Book Review Card -->
     <div class="row card-panel">
         <form class="col s12" method="POST" action="{{ url_for('edit_book', book_id=book._id) }}">
             <!-- Book Title -->
@@ -64,15 +64,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-star green-text accent-4 prefix"></i>
-                    <select id="rating" name="rating" class="validate" required>
-                        <option value="" disabled selected>Choose Your Star Rating</option>
-                        <option value="1">1 Star</option>
-                        <option value="2">2 Star</option>
-                        <option value="3">3 Star</option>
-                        <option value="4">4 Star</option>
-                        <option value="5">5 Star</option>
-                    </select>
-                    <label for="rating">Rating</label>
+                    <input id="rating" name="rating" value="{{ book.rating }}" type="number" min="1" max="5" class="validate" required>
+                    <label for="rating">Star Rating (Out of 5)</label>
                 </div>
             </div>
             <br>
