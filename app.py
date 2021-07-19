@@ -116,7 +116,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    # display users book review on profile page
+    # display users book reviews and favourites on profile page
     if session["user"] == username:
         books = list(mongo.db.books.find({"created_by": username}))
         favourites = list(mongo.db.bookmarked.find(
@@ -125,33 +125,6 @@ def profile(username):
                                favourites=favourites)
 
     return redirect(url_for("login"))
-
-
-# add books to bookmarked book list in db
-@app.route("/bookmarked_book/<book_id>")
-def bookmarked_book(book_id):
-    if session.get("user"):
-        user = mongo.db.users.find_one({"username": session["user"]})
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-        bookmark = {
-            "user": user["_id"],
-            "book_id": book["_id"],
-            "book_title": book["book_title"],
-            "author": book["author"],
-            "genre": book["genre"],
-            "release_year": book["release_year"],
-            "image_url": book["image_url"],
-            "rating": book["rating"],
-            "book_review": book["book_review"],
-            "purchase_link": book["purchase_link"],
-            "created_by": session["user"]
-        }
-        mongo.db.bookmarked.insert_one(bookmark)
-        flash("Added to your bookmarked books!")
-        return redirect(url_for('books'))
-    else:
-        flash("You need to be logged in to bookmark a book!")
-        return redirect(url_for('login'))
 
 
 # add book to db
@@ -218,6 +191,44 @@ def delete_book(book_id):
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("Book Review Deleted")
         return redirect(url_for("books"))
+
+
+# add books to bookmarked book list in db
+@app.route("/bookmarked_book/<book_id>")
+def bookmarked_book(book_id):
+    # checks if user is logged in and performs bookmarked function
+    if session.get("user"):
+        user = mongo.db.users.find_one({"username": session["user"]})
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        bookmark = {
+            "user": user["_id"],
+            "book_id": book["_id"],
+            "book_title": book["book_title"],
+            "author": book["author"],
+            "genre": book["genre"],
+            "release_year": book["release_year"],
+            "image_url": book["image_url"],
+            "rating": book["rating"],
+            "book_review": book["book_review"],
+            "purchase_link": book["purchase_link"],
+            "created_by": session["user"]
+        }
+        # checks if user has already bookmarked book
+        bookmarked = mongo.db.bookmarked.find_one(
+            {"user": user["_id"], "book_id": book["_id"]})
+        # if already bookmarked
+        if bookmarked is not None:
+            flash("You've already added this book!")
+            return redirect(url_for('books'))
+        # if not already bookmarked
+        else:
+            mongo.db.bookmarked.insert_one(bookmark)
+            flash("Added to your bookmarked books!")
+            return redirect(url_for('books'))
+    # if user is not logged in
+    else:
+        flash("You need to be logged in to bookmark a book!")
+        return redirect(url_for('login'))
 
 
 # admin to manage genres in db
