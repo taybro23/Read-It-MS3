@@ -52,7 +52,7 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
                             {% endif %}
-                            <a href="#" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
+                            <a href="{{ url_for('bookmarked_book', book_id=book._id) }}" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
                                 <i class="fas fa-bookmark"></i>
                             </a>
                             <!-- Purchase Link Button, only showing when link is in db -->
@@ -77,7 +77,7 @@
             {% endfor %}
         </div>
         {% else %}
-            <h6>You haven't reviewed any books yet!</h6>
+            <h6>You haven't reviewed any books yet! Add your first review <a href="{{ url_for('add_book') }}">here!</a></h6>
     {% endif %}
 
     <!-- Bookmarked Books Section -->
@@ -125,9 +125,10 @@
     {% endif %}
 
     <!-- Book Comments Section -->
-    <blockquote>
+    
+    <!--<blockquote>
         <h5>Book Comments:</h5>
-    </blockquote>
+    </blockquote>-->
 
     <!-- Add Review Section -->
     <blockquote>
