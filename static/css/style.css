@@ -190,6 +190,7 @@ nav ul a:hover {
     text-decoration: underline;
 }
 
+/* ---------- Focus ---------- */
 
 .like-btn:focus {
     background-color: #00838f;
