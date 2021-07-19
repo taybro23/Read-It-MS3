@@ -62,10 +62,10 @@
                                 <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-floating tooltipped edit-btn" data-position="bottom" data-tooltip="Edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="#" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
-                                    <i class="fas fa-bookmark"></i>
-                                </a>
                             {% endif %}
+                            <a href="{{ url_for('bookmarked_book', book_id=book._id) }}" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
+                                <i class="fas fa-bookmark"></i>
+                            </a>
                             <!-- Purchase Link Button, only showing when link is in db -->
                             {% if book.purchase_link != null %}
                                 <a href="{{ book.purchase_link }}" target="_blank" class="btn-floating tooltipped purchase-btn" data-position="bottom" data-tooltip="Purchase Link">

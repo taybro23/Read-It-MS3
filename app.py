@@ -119,9 +119,39 @@ def profile(username):
     # display users book review on profile page
     if session["user"] == username:
         books = list(mongo.db.books.find({"created_by": username}))
-        return render_template("profile.html", books=books, username=username)
+        favourites = list(mongo.db.bookmarked.find(
+            {"created_by": username}))
+        return render_template("profile.html", books=books, username=username,
+                               favourites=favourites)
 
     return redirect(url_for("login"))
+
+
+# add books to bookmarked book list in db
+@app.route("/bookmarked_book/<book_id>")
+def bookmarked_book(book_id):
+    if session.get("user"):
+        user = mongo.db.users.find_one({"username": session["user"]})
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        bookmark = {
+            "user": user["_id"],
+            "book_id": book["_id"],
+            "book_title": book["book_title"],
+            "author": book["author"],
+            "genre": book["genre"],
+            "release_year": book["release_year"],
+            "image_url": book["image_url"],
+            "rating": book["rating"],
+            "book_review": book["book_review"],
+            "purchase_link": book["purchase_link"],
+            "created_by": session["user"]
+        }
+        mongo.db.bookmarked.insert_one(bookmark)
+        flash("Added to your bookmarked books!")
+        return redirect(url_for('books'))
+    else:
+        flash("You need to be logged in to bookmark a book!")
+        return redirect(url_for('login'))
 
 
 # add book to db

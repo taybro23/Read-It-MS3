@@ -189,3 +189,12 @@ nav ul a:hover {
 .review-link:hover {
     text-decoration: underline;
 }
+
+
+.like-btn:focus {
+    background-color: #00838f;
+}
+
+.purchase-btn:focus {
+    background-color: #4527a0;
+}

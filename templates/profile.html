@@ -51,8 +51,14 @@
                                 <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-floating tooltipped edit-btn" data-position="bottom" data-tooltip="Edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="#" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
-                                    <i class="fas fa-bookmark"></i>
+                            {% endif %}
+                            <a href="#" class="btn-floating tooltipped like-btn" data-position="bottom" data-tooltip="Bookmark">
+                                <i class="fas fa-bookmark"></i>
+                            </a>
+                            <!-- Purchase Link Button, only showing when link is in db -->
+                            {% if book.purchase_link != null %}
+                                <a href="{{ book.purchase_link }}" target="_blank" class="btn-floating tooltipped purchase-btn" data-position="bottom" data-tooltip="Purchase Link">
+                                    <i class="fas fa-shopping-cart"></i>
                                 </a>
                             {% endif %}
                         </div>
@@ -70,12 +76,53 @@
                     </div>
             {% endfor %}
         </div>
+        {% else %}
+            <h6>You haven't reviewed any books yet!</h6>
     {% endif %}
 
     <!-- Bookmarked Books Section -->
     <blockquote>
         <h5>Bookmarked Books:</h5>
     </blockquote>
+    {% if favourites|length > 0 %}
+        <div class="row">
+            {% for fave in favourites %}
+                <div class="col s12 m6 l4">
+                    <div class="card hoverable">
+                        <!-- Book Image -->
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="{{ fave.image_url }}" alt="Book Cover Image">
+                        </div>
+                        <!-- Card Title and Activator -->
+                        <div class="card-content">
+                            <span class="card-title activator black-text">
+                                Book Info & Review<i class="fas fa-arrow-up right"></i>
+                            </span>
+                        </div>
+                        <!-- Card Reveal Information -->
+                        <div class="card-reveal">
+                            <span class="card-title black-text underline">
+                                {{ fave.book_title }} by {{ fave.author }}<i class="fas fa-times right"></i>
+                            </span>
+                            <p>Genre: {{ fave.genre }}</p>
+                            <p>Release Year: {{ fave.release_year }}</p>
+                            <p>Rating: {{ fave.rating }} <i class="fas fa-star"></i> </p>
+                            <p>Review: {{ fave.book_review }}</p>
+                            <p>Created by: {{ fave.created_by }} </p>
+                            <!-- Purchase Link Button, only showing when link is in db -->
+                            {% if fave.purchase_link != null %}
+                                <a href="{{ fave.purchase_link }}" target="_blank" class="btn-floating tooltipped purchase-btn" data-position="bottom" data-tooltip="Purchase Link">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <h6>You haven't bookmarked any books yet. Why not take a look <a href="{{ url_for('books') }}">here</a> and bookmark the ones you're interested in!</h6>
+    {% endif %}
 
     <!-- Book Comments Section -->
     <blockquote>
