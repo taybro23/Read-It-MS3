@@ -25,7 +25,7 @@
 
 Read-It is a site that is designed for people who are looking to keep a record of books that they have read, and share their reviews with others. 
 Users are able to view books and reviews without needing to create an account. This allows new users to preview the site before registering so they have an idea of what the site is like. 
-When a User decides to register, they will be able to log in with ease, create and manage their favourite books, and share them with other Users of the site. 
+When a User decides to register, they will be able to log in with ease, create and manage their favourite books, and share them with other Users of the site. They will also be able to ‘bookmark’ books that they wish to read or want to keep tabs on.
 
 [Back to contents](#table-of-contents)
 
@@ -47,6 +47,7 @@ All users of this site will be looking for similar things, outlined below;
 -	To be able to edit and delete reviews posted.
 -	Search the site to find other reviews.
 -	For the review information to be clear and concise.
+-   Keep a record of books they are interested in.
 -	Find links where they can purchase the books.
 -	To be provided with contact information and social links.
 -	Once finished, to securely log out of the site.
@@ -204,5 +205,41 @@ This project is deployed using Heroku. The following steps were taken;
 [Back to contents](#table-of-contents)
 
 # Credits
+
+## Code
+
+I followed the Code Institute walkthrough project Task Manager, and used the base code as a template for my project. I adjusted the code and added my own to create my site.
+For the styling of the site I used Materialize classes, then added my own CSS code to style them further and make my site unique. 
+
+## Media
+
+Main Content
+Users are encouraged to add image urls when submitting a book review, so the images for the book reviews will be from various sources. 
+
+### Home Page
+
+I have used two images on the home page for the parallax. The top image was sourced from Pexels, and the bottom from Unsplash;
+
+Parallax Top Image
+
+https://images.pexels.com/photos/1319854/pexels-photo-1319854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+
+Parallax Lower Image
+
+https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80
+
+### Profile Page
+
+On the profile page I have used an image from pexels to sit in the card for ‘Leave a review’;
+
+https://images.pexels.com/photos/2908773/pexels-photo-2908773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+
+## Acknowledgements
+
+-	I would like to thank my mentor, Maranatha Ilesanmi, for his guidance and feedback. 
+-	The slack community for helping me with my coding queries.
+-	Tutor support for the more complex queries. 
+-	My friends for testing the site and providing a much needed push!
+
 
 [Back to contents](#table-of-contents)
