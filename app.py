@@ -231,6 +231,17 @@ def bookmarked_book(book_id):
         return redirect(url_for('login'))
 
 
+# remove bookmarked book
+@app.route("/remove_bookmark/<book_id>")
+def remove_bookmark(book_id):
+    if session.get("user"):
+        user = mongo.db.users.find_one({"username": session["user"]})
+        book = mongo.db.bookmarked.find_one({"_id": ObjectId(book_id)})
+        mongo.db.bookmarked.delete_one(book)
+        flash("Removed from Bookmarked Books")
+        return redirect(url_for('books', user=user))
+
+
 # admin to manage genres in db
 @app.route("/manage_genres")
 def manage_genres():
