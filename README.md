@@ -74,6 +74,33 @@ I kept the original ideas for the site as when I built it, I felt that everythin
 
 # Design
 
+### Typography
+
+For this site I have used two fonts; the one auto assigned to Materialize, and one taken from Google Fonts:
+-	Source Code Pro
+
+I chose this as my main font for the site because I wanted a font related to books in some way, and the best sort of font would be that of a typewriter. A lot of typewriter style fonts however, have larger gaps in between each letter, but I found this particular font was spaced just as I wanted it to be. 
+
+I also used Font Awesome to provide fun icons across my site, and for a more visually appealing look. 
+
+### Colours
+
+For the colour scheme for my site, I mainly used the Materialize colour chart. I wanted my site to be green as I personally like the colour.
+Here is a list of colours used for my site;
+-	Mintcream – Mintcream is used as the background colour of the site. I didn’t want a plain white background, but I also didn’t want a bright colour so this colour was perfect. It works well with all the other colours I have used, and provided a subtle green shade across the site.
+-	#000000/Black – Black is used as a text colour when the background colour is white or a light shade of green. 
+-	#ffffff/White – White is mostly used as the text colour when the background is a shade of green. It is also used as the background colour of the ‘cards’ on my site.
+-	#00e676 – This is the main colour of my site, which when written in my html code as a class, is written as ‘green accent-4’. I wanted to use a bright green, but I didn’t want it to be too bright and appear neon as this would turn users away from the site. This is mainly used for the nav bar, footer, flash messages and all standard button colours. 
+-	#4caf50 – This is a secondary shade of green, which when written in my html code as a class, is written as ‘green’. I used this for the page titles and icons.
+-	#388e3c – A slightly darker shade of green was used for the colour of the buttons when they are hovered over. As the main green colour of my site was alright quite bright, I didn’t want to go any brighter so went darker for the hover colours. 
+-	Red – I used the colour red for my cancel and delete buttons, as this is typically the colour used as a cancel/delete colour. 
+-	#d50000 – I used this shade of red for when the cancel/delete buttons are hovered over, again making the button colours darker when hovered over. If I wrote this in my html, the class would be ‘red accent-4’. I chose this colour in particular to stick with the ‘accent-4’ theme. 
+-	#00bcd4 – I used this shade of Cyan exclusively for the ‘bookmark’ button on the book reviews. I wanted all of the buttons on the book reviews to be completely separate colours so they could not be easily mixed up. 
+-	#00838f – This shade of Cyan was used as the hover colour for the ‘bookmark’ button. The class on Materialize for this particular colour is ‘cyan darken-3’. I chose this particular one as it matched the darkness of the green hover colour I was using. 
+-	#7c4dff – For the ‘purchase’ button, again I wanted a completely different colour to ones previously used, so I looked at shades of purple. This was a nice shade that went well with the other button colours. 
+-	#4527a0 – Following suit on the hover colours, I chose a darker shade of purple. This colour was selected as it was not too dark and worked well with the other hover colours I had chosen.
+
+
 [Back to contents](#table-of-contents)
 
 # Features
