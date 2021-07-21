@@ -111,25 +111,25 @@ I used MongoDB as the database for this project. This projects database uses fou
 -	Books
 -	Bookmarked
 
-Users.
+### Users.
 
 Storing users usernames and passwords allows users to register and log in/log out securely. 
 
 ![Users DB image](static/images/database/users.jpg)
 
-Categories.
+### Categories.
 
 I chose to store genres, keyword ‘categories’ in the database so that users could chose the book genre from a dropdown list. I used the ‘categories’ and ‘category_name’ key words due to initially having issues when using ‘genre’ keywords.
 
 ![Categories DB image](static/images/database/categories.jpg)
 
-Books.
+### Books.
 
 When a user has added a book review to the site, the information of the book and the review will be stored in the database. This is so that the information can be stored securely, and can be displayed on the site easily.
 
 ![Books DB image](static/images/database/books.jpg)
 
-Bookmarked.
+### Bookmarked.
 
 When a user bookmarks a book, they too are stored in the database so that the information can be pulled from the database to display on the site.
 
