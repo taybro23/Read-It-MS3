@@ -9,9 +9,13 @@
 
 1. [Overview](#overview)
 2. [UX](#ux)
+    - [Target Audience](#target-audience)
     - [User Stories](#user-stories)
-    - [Wireframes](#wireframes)
 3. [Design](#design)
+    - [Wireframes](#wireframes)
+    - [Typography](#typography)
+    - [Colours](#colours)
+    - [Database](#database)
 4. [Features](#features)
 5. [Technologies Used](#technologies-used)
     - [Languages](#languages)
@@ -60,6 +64,10 @@ All users of this site will be looking for similar things, outlined below;
 -	To be able to add, edit and delete book reviews.
 -	Have access to an admin account whereby the owner/admin can add affiliate links to each review left by a user, and earn money from those links. (For project purposes, these links will NOT be affiliate links, and will only be links to the books on Amazon.)
 
+[Back to contents](#table-of-contents)
+
+# Design
+
 ## Wireframes
 
 To create the wireframes, I used Balsamiq. I started with the mobile wireframes and worked my way to a larger screen size. Below are the links to the completed wireframes;
@@ -69,12 +77,7 @@ To create the wireframes, I used Balsamiq. I started with the mobile wireframes 
 
 I kept the original ideas for the site as when I built it, I felt that everything worked well and I didn’t need to amend anything. 
 
-
-[Back to contents](#table-of-contents)
-
-# Design
-
-### Typography
+## Typography
 
 For this site I have used two fonts; the one auto assigned to Materialize, and one taken from Google Fonts:
 -	Source Code Pro
@@ -83,7 +86,7 @@ I chose this as my main font for the site because I wanted a font related to boo
 
 I also used Font Awesome to provide fun icons across my site, and for a more visually appealing look. 
 
-### Colours
+## Colours
 
 For the colour scheme for my site, I mainly used the Materialize colour chart. I wanted my site to be green as I personally like the colour.
 Here is a list of colours used for my site;
@@ -100,6 +103,37 @@ Here is a list of colours used for my site;
 -	#7c4dff – For the ‘purchase’ button, again I wanted a completely different colour to ones previously used, so I looked at shades of purple. This was a nice shade that went well with the other button colours. 
 -	#4527a0 – Following suit on the hover colours, I chose a darker shade of purple. This colour was selected as it was not too dark and worked well with the other hover colours I had chosen.
 
+## Database
+
+I used MongoDB as the database for this project. This projects database uses four collections;
+-	Users
+-	Categories
+-	Books
+-	Bookmarked
+
+Users.
+
+Storing users usernames and passwords allows users to register and log in/log out securely. 
+
+![Users DB image](static/images/database/users.jpg)
+
+Categories.
+
+I chose to store genres, keyword ‘categories’ in the database so that users could chose the book genre from a dropdown list. I used the ‘categories’ and ‘category_name’ key words due to initially having issues when using ‘genre’ keywords.
+
+![Categories DB image](static/images/database/categories.jpg)
+
+Books.
+
+When a user has added a book review to the site, the information of the book and the review will be stored in the database. This is so that the information can be stored securely, and can be displayed on the site easily.
+
+![Books DB image](static/images/database/books.jpg)
+
+Bookmarked.
+
+When a user bookmarks a book, they too are stored in the database so that the information can be pulled from the database to display on the site.
+
+![Bookmarked DB image](static/images/database/bookmarked.jpg)
 
 [Back to contents](#table-of-contents)
 
