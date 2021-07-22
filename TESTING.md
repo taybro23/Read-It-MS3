@@ -105,4 +105,20 @@
 
 # Bugs and Fixes
 
+When I added the search functionality to the site and reloaded the webpage, I got the following error;
+
+TypeError: object of type 'Cursor' has no len()
+
+This was my python code at the time of the error;
+
+![Code error 1](static/images/testing/code1.jpg)
+
+I was unsure how to fix this and I managed to find a fix by consulting the student slack channels. Someone else had had the same issue before me so I looked over the comments and found the fix in the comments. 
+Student Abi Harrison had spoken to a course tutor and found the following fix;
+
+The books were being returned but not as a list in def books(). I changed this by wrapping mongo.db.books.find() in list(). This rectified the issue, and the fixed code is below.
+
+![Code fix](static/images/testing/code2.jpg)
+
+
 [Back to contents](#table-of-contents)
