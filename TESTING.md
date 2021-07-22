@@ -153,7 +153,7 @@ Once finished, to securely log out of the site.
 - Once a user has logged in, the log out option will be visible on the navbar. They will be able to log out at any time.
 
 
-### Site owner and admin
+### Site Owner and Admin
 
 For users to have easy access to all areas of the site.
 
