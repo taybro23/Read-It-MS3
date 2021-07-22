@@ -1,3 +1,5 @@
+// jQuery for functions on site
+
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
@@ -7,13 +9,14 @@ $(document).ready(function(){
     $('.modal').modal();
     $('.grn-btn').hover(
         function(){
-            $(this).removeClass("green", "accent-4")
+            $(this).removeClass("green", "accent-4");
         },
         function(){
-            $(this).addClass("green", "accent-4")
+            $(this).addClass("green", "accent-4");
         }
     );
     
+    // Code used from Code Institute Task Manager Walkthrough Project
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
