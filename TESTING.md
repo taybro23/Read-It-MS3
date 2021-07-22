@@ -24,13 +24,13 @@
 [W3C HTML Validator](https://validator.w3.org/#validate_by_input) was used to check my HTML – result.
 
 ### CSS3 
-[W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to make sure my CSS was compliant – result.
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to make sure my CSS was compliant – No errors found.
 
 ### JS
-[JSLint](https://www.jslint.com/) was used to check my JavaScript – result.
+[JSLint](https://www.jslint.com/) was used to check my JavaScript – Only errors found were "'$' not defined.
 
 ### Python
-[PEP8 Online](http://pep8online.com/) was what I used to make sure my Python Code was PEP8 compliant – result.
+[PEP8 Online](http://pep8online.com/) was what I used to make sure my Python Code was PEP8 compliant – No errors found.
 
 [Back to contents](#table-of-contents)
 
