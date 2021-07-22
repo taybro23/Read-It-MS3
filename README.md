@@ -183,6 +183,7 @@ These are some features I would like to implement in the future;
 
 -	Comments - I would like to add a feature whereby users can comment on an existing review.
 -	Separate Pages – Books to be displayed on their own page.
+-   Pagination - I would like to limit the number of book reviews per page, and it would be good to do this using Pagination. 
 -	Bookmarked Books – When a user deletes a review, if someone has bookmarked that particular book, it stays on the list and doesn’t get removed. I would also like for the review to be updated if it gets edited.
 
 
