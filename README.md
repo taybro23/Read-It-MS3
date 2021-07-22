@@ -17,6 +17,8 @@
     - [Colours](#colours)
     - [Database](#database)
 4. [Features](#features)
+    - [Current Features](#current-features)
+    - [Future Features](#future-features)
 5. [Technologies Used](#technologies-used)
     - [Languages](#languages)
     - [Database](#database)
@@ -138,6 +140,51 @@ When a user bookmarks a book, they too are stored in the database so that the in
 [Back to contents](#table-of-contents)
 
 # Features
+
+## Current Features
+
+### Site Wide Features
+
+-	Responsiveness – The site is fully responsive to all screen sizes. 
+-	Navbar and footer – The navbar and footer will be the same throughout the entire site, with the same links and information across all pages. The will both sit at the top and bottom of each page respectively, and will not scroll up or down with the user. This gives the user more screen space to view the site.
+-	Flash messages – Flash messages are there to provide the user with feedback once registered, logged in, logged out etc. 
+-	Headers – Each page has a header, and these headers all follow the same suit for formality and ease of viewing. 
+
+### Home Page
+
+-	Parallax – The home page features parallax images. I saw them being used on other students sites and I liked how they looked and wanted to implement one on mine. I used two images of books on shelves, with a small amount of overview text in the middle. 
+
+### Book Reviews
+
+-	Search bar – The search bar is placed at the top of the Book Reviews page so that users can search for a book review easily without having to look through all the currently submitted reviews.
+-	Book Review Cards – I used the Materialize cards classes to help display the book reviews submitted to the site. Each of these cards has the same layout; Book image, Font Awesome arrow icon to click for more info, then the review information will be displayed when clicked. Each card is the same size; this is to make sure that there are no spacing errors, as the book images may be different sizes when added by a user. 
+-	Buttons – On each review card, there have been four buttons coded; Delete, Edit, Bookmark and Purchase Link. The Delete and Edit buttons will only be available to view by the user that has created them, or the Admin of the site. Bookmark and Purchase Link buttons are accessible for all users of the site. When logged out, the Bookmark button will direct them to the log in page. The Purchase Link button is unaffected by user status. 
+
+### My Profile
+
+-	My Reviews – The user will have their own book reviews here, and they will be in the same display format as on the ‘Book Reviews’ page. This is so each user has quick and easy access to all reviews they have posted, and they can be easily edited from here. If the user has not yet left any reviews, text will appear linking them to the add review page.
+-	Bookmarked Books – Bookmarked Books are again in the same format as the Book Review Cards. Displayed are the books that the user has bookmarked. The only difference here is the buttons that are displayed. Within the cards themselves, the only button that is displayed is the Purchase Link button. This is because the other ones are not required. If the user themselves added the book review, they can delete or edit it from the My Reviews section, and as they have already bookmarked the book, the bookmark button is not needed. If the user has not yet bookmarked any books, text will appear linking them to the book review page.
+-	Remove Bookmark Button – This button is displayed directly below each card showing the book review that the user has bookmarked. This is an easy and clear way for the user to remove the saved review from their list. 
+-	Leave A Review Card – At the bottom of the users Profile Page, I have added a Leave A Review card. This is purely for ease of access, and is not really required as they can access it from the navbar, but I thought it would be a nice touch to add it. 
+
+### Add/Edit Book Review, Register/Log In Pages
+
+-	Forms – The forms on these pages are clear and concise, and responsive across all screen sizes. Each form upon submission, has a redirect function that will take the user to a relevant page. 
+
+### Manage/Add/Edit Genres Pages
+
+-	These pages are only accessible by the Admin of the site. 
+-	The genres are displayed on cards, and are sorted alphabetically, starting with A. 
+-	This helps the admin of the site amend genres without having to directly access the database. It’s a quick, easy and simple way to amend the site. 
+
+## Future Features
+
+These are some features I would like to implement in the future;
+
+-	Comments - I would like to add a feature whereby users can comment on an existing review.
+-	Separate Pages – Books to be displayed on their own page.
+-	Bookmarked Books – When a user deletes a review, if someone has bookmarked that particular book, it stays on the list and doesn’t get removed. I would also like for the review to be updated if it gets edited.
+
 
 [Back to contents](#table-of-contents)
 
