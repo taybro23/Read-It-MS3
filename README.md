@@ -3,7 +3,7 @@
 
 [Visit my live website here!](https://read-it-ms3.herokuapp.com/)
 
-![]image here(www.)
+![Site preview](static/images/readme/preview.jpg)
 
 # Table Of Contents
 
@@ -31,7 +31,7 @@
 
 Read-It is a site that is designed for people who are looking to keep a record of books that they have read, and share their reviews with others. 
 Users are able to view books and reviews without needing to create an account. This allows new users to preview the site before registering so they have an idea of what the site is like. 
-When a User decides to register, they will be able to log in with ease, create and manage their favourite books, and share them with other Users of the site. They will also be able to ‘bookmark’ books that they wish to read or want to keep tabs on.
+When a user decides to register, they will be able to log in with ease, create and manage their favourite books, and share them with other users of the site. They will also be able to ‘bookmark’ books that they wish to read or want to keep tabs on.
 
 [Back to contents](#table-of-contents)
 
@@ -43,7 +43,7 @@ The target audience for my site is people who are avid readers. They’ll be abl
 
 ## User Stories
 
-### First time and returning users
+### First Time and Returning Users
 
 All users of this site will be looking for similar things, outlined below;
 -	Easy and clear navigation throughout the entire site on all device types.
@@ -58,7 +58,7 @@ All users of this site will be looking for similar things, outlined below;
 -	To be provided with contact information and social links.
 -	Once finished, to securely log out of the site.
 
-### Site owner/admin
+### Site Owner/Admin
 
 -	For users to have easy access to all areas of the site.
 -	For the site to be clear and concise.
@@ -94,10 +94,10 @@ For the colour scheme for my site, I mainly used the Materialize colour chart. I
 Here is a list of colours used for my site;
 -	Mintcream – Mintcream is used as the background colour of the site. I didn’t want a plain white background, but I also didn’t want a bright colour so this colour was perfect. It works well with all the other colours I have used, and provided a subtle green shade across the site.
 -	#000000/Black – Black is used as a text colour when the background colour is white or a light shade of green. 
--	#ffffff/White – White is mostly used as the text colour when the background is a shade of green. It is also used as the background colour of the ‘cards’ on my site.
+-	#ffffff/White – White is mostly used as the text colour when the background is a shade of green. It is also used as the background colour of the cards on my site.
 -	#00e676 – This is the main colour of my site, which when written in my html code as a class, is written as ‘green accent-4’. I wanted to use a bright green, but I didn’t want it to be too bright and appear neon as this would turn users away from the site. This is mainly used for the nav bar, footer, flash messages and all standard button colours. 
 -	#4caf50 – This is a secondary shade of green, which when written in my html code as a class, is written as ‘green’. I used this for the page titles and icons.
--	#388e3c – A slightly darker shade of green was used for the colour of the buttons when they are hovered over. As the main green colour of my site was alright quite bright, I didn’t want to go any brighter so went darker for the hover colours. 
+-	#388e3c – A slightly darker shade of green was used for the colour of the buttons when they are hovered over. As the main green colour of my site was already quite bright, I didn’t want to go any brighter so went darker for the hover colours. 
 -	Red – I used the colour red for my cancel and delete buttons, as this is typically the colour used as a cancel/delete colour. 
 -	#d50000 – I used this shade of red for when the cancel/delete buttons are hovered over, again making the button colours darker when hovered over. If I wrote this in my html, the class would be ‘red accent-4’. I chose this colour in particular to stick with the ‘accent-4’ theme. 
 -	#00bcd4 – I used this shade of Cyan exclusively for the ‘bookmark’ button on the book reviews. I wanted all of the buttons on the book reviews to be completely separate colours so they could not be easily mixed up. 
@@ -156,14 +156,14 @@ When a user bookmarks a book, they too are stored in the database so that the in
 
 ### Book Reviews
 
--	Search bar – The search bar is placed at the top of the Book Reviews page so that users can search for a book review easily without having to look through all the currently submitted reviews.
+-	Search bar – The search bar is placed at the top of the 'Book Reviews' page so that users can search for a book review easily without having to look through all the currently submitted reviews.
 -	Book Review Cards – I used the Materialize cards classes to help display the book reviews submitted to the site. Each of these cards has the same layout; Book image, Font Awesome arrow icon to click for more info, then the review information will be displayed when clicked. Each card is the same size; this is to make sure that there are no spacing errors, as the book images may be different sizes when added by a user. 
--	Buttons – On each review card, there have been four buttons coded; Delete, Edit, Bookmark and Purchase Link. The Delete and Edit buttons will only be available to view by the user that has created them, or the Admin of the site. Bookmark and Purchase Link buttons are accessible for all users of the site. When logged out, the Bookmark button will direct them to the log in page. The Purchase Link button is unaffected by user status. 
+-	Buttons – On each review card, there have been four buttons coded; Delete, Edit, Bookmark and Purchase Link. The Delete and Edit buttons will only be available to view by the user that has created them, or the Admin of the site. Bookmark and Purchase Link buttons are accessible for all users of the site. When logged out, the Bookmark button will direct them to the 'Log In' page. The Purchase Link button is unaffected by user status. 
 
 ### My Profile
 
 -	My Reviews – The user will have their own book reviews here, and they will be in the same display format as on the ‘Book Reviews’ page. This is so each user has quick and easy access to all reviews they have posted, and they can be easily edited from here. If the user has not yet left any reviews, text will appear linking them to the add review page.
--	Bookmarked Books – Bookmarked Books are again in the same format as the Book Review Cards. Displayed are the books that the user has bookmarked. The only difference here is the buttons that are displayed. Within the cards themselves, the only button that is displayed is the Purchase Link button. This is because the other ones are not required. If the user themselves added the book review, they can delete or edit it from the My Reviews section, and as they have already bookmarked the book, the bookmark button is not needed. If the user has not yet bookmarked any books, text will appear linking them to the book review page.
+-	Bookmarked Books – Bookmarked Books are again in the same format as the Book Review Cards. Displayed, are the books that the user has bookmarked. The only difference here is the buttons that are displayed. Within the cards themselves, the only button that is displayed is the Purchase Link button. This is because the other ones are not required. If the user themselves added the book review, they can delete or edit it from the My Reviews section, and as they have already bookmarked the book, the bookmark button is not needed. If the user has not yet bookmarked any books, text will appear linking them to the book review page.
 -	Remove Bookmark Button – This button is displayed directly below each card showing the book review that the user has bookmarked. This is an easy and clear way for the user to remove the saved review from their list. 
 -	Leave A Review Card – At the bottom of the users Profile Page, I have added a Leave A Review card. This is purely for ease of access, and is not really required as they can access it from the navbar, but I thought it would be a nice touch to add it. 
 
@@ -263,7 +263,7 @@ This site was created and managed using GitHub and GitPod. Outlined below is how
 -	The page will refresh. Scroll down to the “GitHub Pages” section again and just below the heading, there will be a tick, with the line “Your site is published at…” and the URL.
 -	Copy the URL and paste it into a new tab/window to view the live site.
 
-## Forking the repository
+## Forking The Repository
 
 Forking the repository allows you to make a copy of the original, and make changes without amending the original. 
 
@@ -272,7 +272,7 @@ Forking the repository allows you to make a copy of the original, and make chang
 -	At the top of the repository, in line with the repository name and on the right hand side, will be a “Fork” button. Select this and it will fork the repository for you.
 -	You will then have a copy of the original repository in your GitHub account repository list.
 
-## Cloning the repository
+## Cloning The Repository
 
 You can run your own version by cloning the repository. To make a local clone, follow the steps below.
 
