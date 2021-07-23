@@ -77,6 +77,7 @@
             {% endfor %}
         </div>
         {% else %}
+            <!-- Text To Display If No Reviews Found -->
             <h6>You haven't reviewed any books yet! Add your first review <a href="{{ url_for('add_book') }}">here!</a></h6>
     {% endif %}
 
@@ -126,6 +127,7 @@
             {% endfor %}
         </div>
         {% else %}
+            <!-- Text To Display If No Reviews Found -->
             <h6>You haven't bookmarked any books yet. Why not take a look <a href="{{ url_for('books') }}">here</a> and bookmark the ones you're interested in!</h6>
     {% endif %}
 
