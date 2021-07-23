@@ -141,7 +141,7 @@ def add_book():
             book = {
                 "book_title": request.form.get("book_title"),
                 "author": request.form.get("author"),
-                "genre": request.form.get("genre"),
+                "genre": request.form.get("genre_type"),
                 "release_year": request.form.get("release_year"),
                 "image_url": request.form.get("image_url"),
                 "rating": request.form.get("rating"),
@@ -160,34 +160,28 @@ def add_book():
 # edit book review
 @app.route("/edit-book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    if "user" in session:
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-        if book["created_by"] == username or session["user"] == "admin":
-            if request.method == "POST":
-                # retrieve book info from db
-                submit = {
-                    "book_title": request.form.get("book_title"),
-                    "author": request.form.get("author"),
-                    "genre": request.form.get("genre"),
-                    "release_year": request.form.get("release_year"),
-                    "image_url": request.form.get("image_url"),
-                    "rating": request.form.get("rating"),
-                    "book_review": request.form.get("book_review"),
-                    "purchase_link": request.form.get("purchase_link"),
-                    "created_by": session["user"]
-                }
-                # update book info
-                mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
-                flash("Book Review Updated!")
+    if session.get("user"):
+        if request.method == "POST":
+            # retrieve book info from db
+            submit = {
+                "book_title": request.form.get("book_title"),
+                "author": request.form.get("author"),
+                "genre": request.form.get("genre_type"),
+                "release_year": request.form.get("release_year"),
+                "image_url": request.form.get("image_url"),
+                "rating": request.form.get("rating"),
+                "book_review": request.form.get("book_review"),
+                "purchase_link": request.form.get("purchase_link"),
+                "created_by": session["user"]
+            }
+            # update book info
+            mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
+            flash("Book Review Updated!")
 
-            categories = mongo.db.categories.find().sort("category_name", 1)
-            return render_template("edit-book.html",
-                                   book=book, categories=categories)
-        else:
-            flash("You need to be logged in to view this page!")
-            return redirect(url_for('login'))
+        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("edit-book.html",
+                               book=book, categories=categories)
 
 
 # delete book review
