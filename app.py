@@ -112,19 +112,21 @@ def logout():
 # users profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from the db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    # display users book reviews and favourites on profile page
-    if session["user"] == username:
-        books = list(mongo.db.books.find({"created_by": username}))
-        favourites = list(mongo.db.bookmarked.find(
-            {"created_by": username}))
-        return render_template("profile.html", books=books, username=username,
-                               favourites=favourites)
-
-    return redirect(url_for("login"))
+    if session.get("user"):
+        # grab the session user's username from the db
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        # display users book reviews and favourites on profile page
+        if session["user"] == username:
+            books = list(mongo.db.books.find({"created_by": username}))
+            favourites = list(mongo.db.bookmarked.find(
+                {"created_by": username}))
+            return render_template("profile.html", books=books,
+                                   username=username,
+                                   favourites=favourites)
+    else:
+        flash("You need to be logged in to perform this function")
+        return redirect(url_for("login"))
 
 
 # add book to db
@@ -155,12 +157,16 @@ def add_book():
             return redirect(url_for("books"))
         categories = mongo.db.categories.find().sort("category_name", 1)
         return render_template("add-book.html", categories=categories)
+    else:
+        flash("You need to be logged in to perform this function")
+        return redirect(url_for("login"))
 
 
 # edit book review
 @app.route("/edit-book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
-    if session.get("user"):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    if session.get("user") == book["created_by"] or session["user"] == "admin":
         if request.method == "POST":
             # retrieve book info from db
             submit = {
@@ -178,10 +184,12 @@ def edit_book(book_id):
             mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
             flash("Book Review Updated!")
 
-        book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
         categories = mongo.db.categories.find().sort("category_name", 1)
         return render_template("edit-book.html",
                                book=book, categories=categories)
+    else:
+        flash("You do not have permission perform this function")
+        return redirect(url_for("books"))
 
 
 # delete book review
