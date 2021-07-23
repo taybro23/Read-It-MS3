@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h3 class="green-text accent-4 center-align underline">Log In</h3>
+    <h3 class="green-text center-align underline">Log In</h3>
 
     <p class="center-align grey-text">
         Welcome back! Log in to view your reviews and bookmarked books!
@@ -15,7 +15,7 @@
                 <!-- Username -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-user-cog prefix green-text accent-4"></i>
+                        <i class="fas fa-user-cog green-text prefix"></i>
                         <input id="username" name="username" type="text"
                             minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
@@ -24,7 +24,7 @@
                 <!-- Password -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-user-lock prefix green-text accent-4"></i>
+                        <i class="fas fa-user-lock green-text prefix"></i>
                         <input id="password" name="password" type="password"
                             minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
@@ -47,7 +47,7 @@
                 New Here?
             </p>
             <p class="center-align">
-                <a href="{{ url_for('register') }}" class="green-text accent-4 hover-under">Register</a>
+                <a href="{{ url_for('register') }}" class="green-text hover-under">Register</a>
             </p>
         </div>
     </div>

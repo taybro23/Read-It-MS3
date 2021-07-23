@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h3 class="green-text accent-4 center-align underline">Edit Book Review</h3>
+    <h3 class="green-text center-align underline">Edit Book Review</h3>
 
     <!-- Edit Book Review Card -->
     <div class="row card-panel">
@@ -10,7 +10,7 @@
             <!-- Book Title -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-book green-text accent-4 prefix"></i>
+                    <i class="fas fa-book green-text prefix"></i>
                     <input id="book_title" name="book_title" minlength="2" maxlength="50" 
                         value="{{ book.book_title }}" type="text" class="validate" required>
                     <label for="book_title">Book Title</label>
@@ -19,7 +19,7 @@
             <!-- Book Author -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt green-text accent-4 prefix"></i>
+                    <i class="fas fa-pencil-alt green-text prefix"></i>
                     <input id="author" name="author" minlength="2" maxlength="50" 
                     value="{{ book.author }}" type="text" class="validate" required>
                     <label for="author">Author</label>
@@ -28,7 +28,7 @@
             <!-- Genre Selection -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-book-reader green-text accent-4 prefix"></i>
+                    <i class="fas fa-book-reader green-text prefix"></i>
                     <select id="genre_type" name="genre_type" class="validate" required>
                         <option value="" disabled>Genre</option>
                         {% for category in categories %}
@@ -45,7 +45,7 @@
             <!-- Release Year -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt green-text accent-4 prefix"></i>
+                    <i class="fas fa-calendar-alt green-text prefix"></i>
                     <input id="release_year" name="release_year" minlength="4" maxlength="4" 
                     value="{{ book.release_year }}" type="number" class="validate" required>
                     <label for="release_year">Release Year</label>
@@ -54,7 +54,7 @@
             <!-- Book Image Url -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-image prefix green-text accent-4"></i>
+                    <i class="fas fa-image green-text prefix"></i>
                     <input id="image_url" name="image_url" type="text" class="validate" 
                         value="{{ book.image_url }}" required>
                     <label for="image_url">Book Image URL</label>
@@ -63,7 +63,7 @@
             <!-- Star Rating Selection -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-star green-text accent-4 prefix"></i>
+                    <i class="fas fa-star green-text prefix"></i>
                     <input id="rating" name="rating" value="{{ book.rating }}" type="number" min="1" max="5" class="validate" required>
                     <label for="rating">Star Rating (Out of 5)</label>
                 </div>
