@@ -9,11 +9,25 @@
         </div>
     </div>
 
+    {% if session.user %}
+    <h3 class="green-text center-align underline">Welcome back to Read-It</h3>
+    {% else %}
     <h3 class="green-text center-align underline">Welcome to Read-It</h3>
+    {% endif %}
 
     <!-- Page Text -->
     <div class="row container">
         <div class="col s12">
+            {% if session.user %}
+            <h6>
+                Welcome back to Read-It! The site where you can share reviews of your favourite books
+                with other avid readers. On our site, you can read reviews created by people who have
+                read them independently; no paid reviews will ever be on our site.
+                <br> <br>
+                Check out existing book reviews <a href="{{ url_for('books') }}">here,</a> and why not
+                add your own by clicking <a href="{{ url_for('add_book') }}">here?</a>
+            </h6>
+            {% else %}
             <h6>
                 Welcome to Read-It! The site where you can share reviews of your favourite books
                 with other avid readers. On our site, you can read reviews created by people who have
@@ -27,6 +41,7 @@
                 <br> <br>
                 Once you're logged in, why not leave a review and share your thoughts with the world!
             </h6>
+            {% endif %}
         </div>
     </div>
 
