@@ -36,6 +36,13 @@
 
 # Features and Functionality
 
+### Security Testing
+
+- All pages were tested to make sure that no unauthorised users can access pages they should not have access to.
+- If a user is logged out, they have no access to any pages they should not have access to. 
+- All admin only pages can only be accessed by the admin.
+- Redirects are all working as expected, with correct flash messages present.
+
 ### Responsiveness
 
 -	The responsiveness of this site was tested using a Windows Laptop, an Apple MacBook Pro, a Samsung Galaxy S20 mobile phone and an iPhone 12. 
@@ -205,5 +212,11 @@ When I originally made my cards for the book reviews, I had not set the size of 
 ![Spacing issue 2](static/images/testing/spacing2.jpg)
 
 I struggled with how to get the images the same size, and consulted the slack community. Naoise Gaffney helped to provide me with a solution, and with his help, I was able to get the card size the same regardless of image size. This fix is what I am using for my site. 
+
+## Edit Books
+
+When a book review is edited, the fields are already filled in with information that the user has previously entered. However, the 'genre' field is always set to 'Art & Photography'. The genre can be amended, and when the review is saved, the genre is amended in the database but not in the form. This is something that still needs to be fixed.
+
+![Edit Review form](static/images/readme/edit.jpg)
 
 [Back to contents](#table-of-contents)
