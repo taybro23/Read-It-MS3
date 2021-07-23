@@ -66,7 +66,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-    return render_template("register.html")
+    return render_template("profile.html")
 
 
 # user log in
@@ -166,27 +166,32 @@ def add_book():
 @app.route("/edit-book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
-    if session.get("user") == book["created_by"] or session["user"] == "admin":
-        if request.method == "POST":
-            # retrieve book info from db
-            submit = {
-                "book_title": request.form.get("book_title"),
-                "author": request.form.get("author"),
-                "genre": request.form.get("genre_type"),
-                "release_year": request.form.get("release_year"),
-                "image_url": request.form.get("image_url"),
-                "rating": request.form.get("rating"),
-                "book_review": request.form.get("book_review"),
-                "purchase_link": request.form.get("purchase_link"),
-                "created_by": session["user"]
-            }
-            # update book info
-            mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
-            flash("Book Review Updated!")
+    if session.get("user"):
+        if session.get("user") == book["created_by"] or session[
+          "user"] == "admin":
+            if request.method == "POST":
+                # retrieve book info from db
+                submit = {
+                    "book_title": request.form.get("book_title"),
+                    "author": request.form.get("author"),
+                    "genre": request.form.get("genre_type"),
+                    "release_year": request.form.get("release_year"),
+                    "image_url": request.form.get("image_url"),
+                    "rating": request.form.get("rating"),
+                    "book_review": request.form.get("book_review"),
+                    "purchase_link": request.form.get("purchase_link"),
+                    "created_by": session["user"]
+                }
+                # update book info
+                mongo.db.books.update({"_id": ObjectId(book_id)}, submit)
+                flash("Book Review Updated!")
 
-        categories = mongo.db.categories.find().sort("category_name", 1)
-        return render_template("edit-book.html",
-                               book=book, categories=categories)
+            categories = mongo.db.categories.find().sort("category_name", 1)
+            return render_template("edit-book.html", book=book,
+                                   categories=categories)
+        else:
+            flash("You do not have permission perform this function")
+            return redirect(url_for("books"))
     else:
         flash("You do not have permission perform this function")
         return redirect(url_for("books"))
@@ -198,6 +203,9 @@ def delete_book(book_id):
     if session.get("user"):
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("Book Review Deleted")
+        return redirect(url_for("books"))
+    else:
+        flash("You do not have permission perform this function")
         return redirect(url_for("books"))
 
 
@@ -248,52 +256,71 @@ def remove_bookmark(book_id):
         mongo.db.bookmarked.delete_one(book)
         flash("Removed from Bookmarked Books")
         return redirect(url_for('books', user=user))
+    else:
+        flash("You do not have permission perform this function")
+        return redirect(url_for("books"))
 
 
 # admin to manage genres in db
 @app.route("/manage_genres")
 def manage_genres():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("genres.html", categories=categories)
+    if session.get("user") == "admin":
+        categories = list(mongo.db.categories.find().sort("category_name", 1))
+        return render_template("genres.html", categories=categories)
+    else:
+        flash("You do not have permission perform this function")
+        return redirect(url_for("books"))
 
 
 # admin to add genre to genre list db
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
-        # add genre to db
-        mongo.db.categories.insert_one(category)
-        flash("New Genre Added")
-        return redirect(url_for("manage_genres"))
+    if session.get("user") == "admin":
+        if request.method == "POST":
+            category = {
+                "category_name": request.form.get("category_name")
+            }
+            # add genre to db
+            mongo.db.categories.insert_one(category)
+            flash("New Genre Added")
+            return redirect(url_for("manage_genres"))
 
-    return render_template("add-genre.html")
+        return render_template("add-genre.html")
+    else:
+        flash("You do not have permission perform this function")
+        return redirect(url_for("books"))
 
 
 # edit currently existing genre in db
 @app.route("/edit_genre/<category_id>", methods=["GET", "POST"])
 def edit_genre(category_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name")
-        }
-        # edit genre in db
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("Genre Successfully Updated")
-        return redirect(url_for("manage_genres"))
+    if session.get("user") == "admin":
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name")
+            }
+            # edit genre in db
+            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            flash("Genre Successfully Updated")
+            return redirect(url_for("manage_genres"))
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit-genre.html", category=category)
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        return render_template("edit-genre.html", category=category)
+    else:
+        flash("You do not have permission perform this function")
+        return redirect(url_for("books"))
 
 
 # delete genre from db
 @app.route("/delete_genre/<category_id>")
 def delete_genre(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Genre Successfully Deleted")
-    return redirect(url_for("manage_genres"))
+    if session.get("user") == "admin":
+        mongo.db.categories.remove({"_id": ObjectId(category_id)})
+        flash("Genre Successfully Deleted")
+        return redirect(url_for("manage_genres"))
+    else:
+        flash("You do not have permission perform this function")
+        return redirect(url_for("books"))
 
 
 if __name__ == "__main__":
