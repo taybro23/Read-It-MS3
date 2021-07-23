@@ -153,6 +153,7 @@ When a user bookmarks a book, they too are stored in the database so that the in
 ### Home Page
 
 -	Parallax – The home page features parallax images. I saw them being used on other students sites and I liked how they looked and wanted to implement one on mine. I used two images of books on shelves, with a small amount of overview text in the middle. 
+- Body Text - When a user first visits the site, or is logged out, they are shown a different heading and body text than if they are logged in. This is so the text is relevant to their log in status. Someone who is already logged in does not need the links for register or log in, and someone who is not a registered user cannot add a review.
 
 ### Book Reviews
 
