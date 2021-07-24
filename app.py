@@ -113,6 +113,7 @@ def logout():
 # users profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    # checks if user is logged in
     if session.get("user"):
         # grab the session user's username from the db
         username = mongo.db.users.find_one(
@@ -125,6 +126,8 @@ def profile(username):
             return render_template("profile.html", books=books,
                                    username=username,
                                    favourites=favourites)
+    # if user is not logged in. if different user is logged in,
+    # their own profile will be loaded
     else:
         flash("You need to be logged in to perform this action")
         return redirect(url_for("login"))
@@ -133,6 +136,7 @@ def profile(username):
 # add book to db
 @app.route("/add-book", methods=["GET", "POST"])
 def add_book():
+    # checks if user is logged in
     if session.get("user"):
         if request.method == "POST":
             # purchase link auto-generated
@@ -158,6 +162,7 @@ def add_book():
             return redirect(url_for("books"))
         categories = mongo.db.categories.find().sort("category_name", 1)
         return render_template("add-book.html", categories=categories)
+    # if user is not logged in
     else:
         flash("You need to be logged in to perform this action")
         return redirect(url_for("login"))
@@ -167,6 +172,8 @@ def add_book():
 @app.route("/edit-book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    # checks that user accessing this page either created
+    # the review or is admin
     if session.get("user"):
         if session.get("user") == book["created_by"] or session[
           "user"] == "admin":
@@ -190,9 +197,11 @@ def edit_book(book_id):
             categories = mongo.db.categories.find().sort("category_name", 1)
             return render_template("edit-book.html", book=book,
                                    categories=categories)
+        # if user is not the creator of review or the admin
         else:
             flash("You do not have permission to perform this action")
             return redirect(url_for("books"))
+    # if user is not logged in
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -201,10 +210,12 @@ def edit_book(book_id):
 # delete book review
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
+    # checks if user is logged in
     if session.get("user"):
         mongo.db.books.remove({"_id": ObjectId(book_id)})
         flash("Book Review Deleted")
         return redirect(url_for("books"))
+    # if user is not logged in
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -251,12 +262,14 @@ def bookmarked_book(book_id):
 # remove bookmarked book
 @app.route("/remove_bookmark/<book_id>")
 def remove_bookmark(book_id):
+    # checks if user is logged in and has any bookmarks stored
     if session.get("user"):
         user = mongo.db.users.find_one({"username": session["user"]})
         book = mongo.db.bookmarked.find_one({"_id": ObjectId(book_id)})
         mongo.db.bookmarked.delete_one(book)
         flash("Removed from Bookmarked Books")
         return redirect(url_for('books', user=user))
+    # if user is not logged in
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -265,9 +278,11 @@ def remove_bookmark(book_id):
 # admin to manage genres in db
 @app.route("/manage_genres")
 def manage_genres():
+    # checks if admin is logged in
     if session.get("user") == "admin":
         categories = list(mongo.db.categories.find().sort("category_name", 1))
         return render_template("genres.html", categories=categories)
+    # if user is not admin
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -276,6 +291,7 @@ def manage_genres():
 # admin to add genre to genre list db
 @app.route("/add_genre", methods=["GET", "POST"])
 def add_genre():
+    # checks if admin is logged in
     if session.get("user") == "admin":
         if request.method == "POST":
             category = {
@@ -287,6 +303,7 @@ def add_genre():
             return redirect(url_for("manage_genres"))
 
         return render_template("add-genre.html")
+    # if user is not admin
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -295,6 +312,7 @@ def add_genre():
 # edit currently existing genre in db
 @app.route("/edit_genre/<category_id>", methods=["GET", "POST"])
 def edit_genre(category_id):
+    # checks if admin is logged in
     if session.get("user") == "admin":
         if request.method == "POST":
             submit = {
@@ -307,6 +325,7 @@ def edit_genre(category_id):
 
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
         return render_template("edit-genre.html", category=category)
+    # if user is not admin
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -315,10 +334,12 @@ def edit_genre(category_id):
 # delete genre from db
 @app.route("/delete_genre/<category_id>")
 def delete_genre(category_id):
+    # checks if admin is logged in
     if session.get("user") == "admin":
         mongo.db.categories.remove({"_id": ObjectId(category_id)})
         flash("Genre Successfully Deleted")
         return redirect(url_for("manage_genres"))
+    # if user is not admin
     else:
         flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
@@ -327,4 +348,4 @@ def delete_genre(category_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
