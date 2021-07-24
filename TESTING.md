@@ -17,17 +17,18 @@
 4. [Bugs and Fixes](#bugs-and-fixes)
     - [Search Bar](#search-bar-issue)
     - [Card Images](#card-images)
+    - [Edit Books](#edit-books)
 
 # Code Validation
 
 ### HTML5
-[W3C HTML Validator](https://validator.w3.org/#validate_by_input) was used to check my HTML – result.
+[W3C HTML Validator](https://validator.w3.org/#validate_by_input) was used to check my HTML – Only errors found were the Jinja code inputs. All HTML passed.
 
 ### CSS3 
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to make sure my CSS was compliant – No errors found.
 
 ### JS
-[JSLint](https://www.jslint.com/) was used to check my JavaScript – Only errors found were "'$' not defined.
+[JSHint](https://www.jshint.com/) was used to check my JavaScript – Only errors found were "'$' not defined".
 
 ### Python
 [PEP8 Online](http://pep8online.com/) was what I used to make sure my Python Code was PEP8 compliant – No errors found.
@@ -76,12 +77,12 @@
 
 ### Edit Book Review
 
--	Pre-fill – When a user edits a book review, the form is correctly filled in with the information they have previously entered. 
+-	Pre-fill – When a user edits a book review, the form is correctly filled in with the information they have previously entered (bar the 'genre' input which is mentioned in the Bugs and Fixes section). 
 -	Buttons – Both the cancel and edit review buttons work as intended, with the edit review button correctly updating the database. 
 
 ### Flash Messages
 
--	All flash messages were tested across the site to make sure they popped up when they should, and that the text in the flash message is correct and not misspelt. 
+-	All flash messages were tested across the site to make sure they popped up when they should, and that the text in the flash message is correct and not misspelt or gramatically incorrect. 
 
 ### Footer
 
@@ -217,6 +218,6 @@ I struggled with how to get the images the same size, and consulted the slack co
 
 When a book review is edited, the fields are already filled in with information that the user has previously entered. However, the 'genre' field is always set to 'Art & Photography'. The genre can be amended, and when the review is saved, the genre is amended in the database but not in the form. This is something that still needs to be fixed.
 
-![Edit Review form](static/images/readme/edit.jpg)
+![Edit Review form](static/images/testing/edit.jpg)
 
 [Back to contents](#table-of-contents)
