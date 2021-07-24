@@ -43,9 +43,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt green-text prefix"></i>
-                    <input id="release_year" name="release_year" minlength="4" maxlength="4" 
-                        type="text" class="validate" required>
-                    <label for="release_year">Release Year</label>
+                    <input id="release_year" name="release_year" type="text" 
+                        pattern="[0-9]{4}" class="validate" required>
+                    <label for="release_year">Release Year (e.g. 2010)</label>
                 </div>
             </div>
             <!-- Book Image Url -->
