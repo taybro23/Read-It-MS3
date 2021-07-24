@@ -77,14 +77,14 @@ To create the wireframes, I used Balsamiq. I started with the mobile wireframes 
 -	[Mobile](static/images/wireframes/mobilewf.pdf)
 -	[Desktop/Laptop](static/images/wireframes/desktopwf.pdf)
 
-I kept the original ideas for the site as when I built it, I felt that everything worked well and I didn’t need to amend anything. 
+I kept most of the original design, but added a few extra features to improve on the overall site. I also changed some of the wording on the site to improve user experience and readability. 
 
 ## Typography
 
 For this site I have used two fonts; the one auto assigned to Materialize, and one taken from Google Fonts:
 -	Source Code Pro
 
-I chose this as my main font for the site because I wanted a font related to books in some way, and the best sort of font would be that of a typewriter. A lot of typewriter style fonts however, have larger gaps in between each letter, but I found this particular font was spaced just as I wanted it to be. 
+I chose this as my second font for the site because I wanted a font related to books in some way, and the best sort of font would be that of a typewriter. A lot of typewriter style fonts however, have larger gaps in between each letter, but I found this particular font was spaced just as I wanted it to be. 
 
 I also used Font Awesome to provide fun icons across my site, and for a more visually appealing look. 
 
@@ -92,7 +92,7 @@ I also used Font Awesome to provide fun icons across my site, and for a more vis
 
 For the colour scheme for my site, I mainly used the Materialize colour chart. I wanted my site to be green as I personally like the colour.
 Here is a list of colours used for my site;
--	Mintcream – Mintcream is used as the background colour of the site. I didn’t want a plain white background, but I also didn’t want a bright colour so this colour was perfect. It works well with all the other colours I have used, and provided a subtle green shade across the site.
+-	Mintcream – Mintcream is used as the background colour of the site. I didn’t want a plain white background, but I also didn’t want a bright colour so this colour was perfect. It works well with all the other colours I have used, and provides a subtle green shade across the site.
 -	#000000/Black – Black is used as a text colour when the background colour is white or a light shade of green. 
 -	#ffffff/White – White is mostly used as the text colour when the background is a shade of green. It is also used as the background colour of the cards on my site.
 -	#00e676 – This is the main colour of my site, which when written in my html code as a class, is written as ‘green accent-4’. I wanted to use a bright green, but I didn’t want it to be too bright and appear neon as this would turn users away from the site. This is mainly used for the nav bar, footer, flash messages and all standard button colours. 
@@ -325,7 +325,14 @@ For the styling of the site I used Materialize classes, then added my own CSS co
 
 ## Media
 
-Main Content
+### Favicon
+
+Favicon image was found on google images;
+
+https://img.icons8.com/emoji/452/green-book.png
+
+### Main Content
+
 Users are encouraged to add image urls when submitting a book review, so the images for the book reviews will be from various sources. 
 
 ### Home Page
