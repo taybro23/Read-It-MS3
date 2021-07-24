@@ -126,7 +126,7 @@ def profile(username):
                                    username=username,
                                    favourites=favourites)
     else:
-        flash("You need to be logged in to perform this function")
+        flash("You need to be logged in to perform this action")
         return redirect(url_for("login"))
 
 
@@ -159,7 +159,7 @@ def add_book():
         categories = mongo.db.categories.find().sort("category_name", 1)
         return render_template("add-book.html", categories=categories)
     else:
-        flash("You need to be logged in to perform this function")
+        flash("You need to be logged in to perform this action")
         return redirect(url_for("login"))
 
 
@@ -191,10 +191,10 @@ def edit_book(book_id):
             return render_template("edit-book.html", book=book,
                                    categories=categories)
         else:
-            flash("You do not have permission perform this function")
+            flash("You do not have permission to perform this action")
             return redirect(url_for("books"))
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
@@ -206,7 +206,7 @@ def delete_book(book_id):
         flash("Book Review Deleted")
         return redirect(url_for("books"))
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
@@ -258,7 +258,7 @@ def remove_bookmark(book_id):
         flash("Removed from Bookmarked Books")
         return redirect(url_for('books', user=user))
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
@@ -269,7 +269,7 @@ def manage_genres():
         categories = list(mongo.db.categories.find().sort("category_name", 1))
         return render_template("genres.html", categories=categories)
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
@@ -288,7 +288,7 @@ def add_genre():
 
         return render_template("add-genre.html")
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
@@ -308,7 +308,7 @@ def edit_genre(category_id):
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
         return render_template("edit-genre.html", category=category)
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
@@ -320,7 +320,7 @@ def delete_genre(category_id):
         flash("Genre Successfully Deleted")
         return redirect(url_for("manage_genres"))
     else:
-        flash("You do not have permission perform this function")
+        flash("You do not have permission to perform this action")
         return redirect(url_for("books"))
 
 
